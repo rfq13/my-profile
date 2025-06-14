@@ -6,13 +6,13 @@ const Footer: React.FC = () => {
   const socialLinks = [
     {
       icon: <Github className="w-5 h-5" />,
-      href: "https://github.com",
+      href: "https://github.com/johndoe",
       label: "GitHub"
     },
     {
       icon: <Linkedin className="w-5 h-5" />,
       href: "https://linkedin.com/in/johndoe",
-      label: "LinkedIn"
+      label: "LinkedIn"  
     },
     {
       icon: <Twitter className="w-5 h-5" />,
@@ -21,7 +21,7 @@ const Footer: React.FC = () => {
     },
     {
       icon: <Instagram className="w-5 h-5" />,
-      href: "https://instagram.com/johndoe",
+      href: "https://instagram.com/johndoe", 
       label: "Instagram"
     },
     {
@@ -37,16 +37,18 @@ const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="py-12 glass-effect-dark border-t border-white/10">
+    <footer className="py-12 bg-white border-t border-gray-200">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-6 mb-6 md:mb-0">
             {socialLinks.map((link, index) => (
               <a
                 key={index}
                 href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label={link.label}
-                className="p-3 glass-effect rounded-full text-white/70 hover:text-neon-blue transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-neon-blue/25"
+                className="p-3 bg-gray-50 rounded-full text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-all duration-300 hover:scale-110"
               >
                 {link.icon}
               </a>
@@ -54,13 +56,13 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
-        <div className="mt-8 pt-8 border-t border-white/10 text-center">
-          <p className="text-white/60 flex items-center justify-center gap-2">
+        <div className="mt-8 pt-8 border-t border-gray-200 text-center">
+          <p className="text-gray-600 flex items-center justify-center gap-2">
             Made with 
-            <Heart className="w-4 h-4 text-neon-pink animate-pulse" />
+            <Heart className="w-4 h-4 text-red-500 animate-pulse" />
             by John Doe
           </p>
-          <p className="text-white/40 text-sm mt-2">
+          <p className="text-gray-400 text-sm mt-2">
             © 2024 All rights reserved.
           </p>
         </div>
