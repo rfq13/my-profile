@@ -1,5 +1,18 @@
+
 import React from 'react';
 import { useScrollZoom } from '../hooks/useScrollZoom';
+import { Badge } from './ui/badge';
+
+const badgeColors = [
+  'bg-blue-100 text-blue-700 border-blue-200',
+  'bg-purple-100 text-purple-700 border-purple-200',
+  'bg-pink-100 text-pink-700 border-pink-200',
+  'bg-yellow-100 text-yellow-700 border-yellow-200',
+  'bg-green-100 text-green-700 border-green-200',
+  'bg-orange-100 text-orange-700 border-orange-200',
+  'bg-cyan-100 text-cyan-700 border-cyan-200',
+  'bg-red-100 text-red-700 border-red-200'
+];
 
 const Skills: React.FC = () => {
   const { scrollY } = useScrollZoom();
@@ -10,6 +23,7 @@ const Skills: React.FC = () => {
     "Git", "Docker", "AWS", "Figma", "GraphQL", "JavaScript", "HTML", "CSS"
   ];
 
+  // Gandakan agar marquee tetap panjang
   const duplicatedSkills = [...skills, ...skills];
 
   return (
@@ -31,18 +45,36 @@ const Skills: React.FC = () => {
           className="relative flex flex-col gap-4 overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)] transition-transform duration-300 ease-out"
           style={{ transform: `scale(${1 + scrollY * 0.0001})` }}
         >
-          <div className="flex w-max animate-marquee">
+          <div className="flex w-max animate-marquee gap-0.5">
             {duplicatedSkills.map((skill, index) => (
-              <div key={`top-${index}`} className="mx-4 px-6 py-3 bg-white shadow-md rounded-lg border border-gray-200">
-                <p className="text-lg font-medium text-gray-700">{skill}</p>
-              </div>
+              <Badge
+                key={`top-${index}`}
+                className={`
+                  mx-2 px-6 py-3 border 
+                  shadow transition-transform duration-200 
+                  hover:scale-110 hover:brightness-105 hover:shadow-lg
+                  font-semibold text-base
+                  ${badgeColors[index % badgeColors.length]}
+                `}
+              >
+                {skill}
+              </Badge>
             ))}
           </div>
-          <div className="flex w-max animate-marquee-reverse">
+          <div className="flex w-max animate-marquee-reverse gap-0.5">
             {duplicatedSkills.map((skill, index) => (
-              <div key={`bottom-${index}`} className="mx-4 px-6 py-3 bg-white shadow-md rounded-lg border border-gray-200">
-                <p className="text-lg font-medium text-gray-700">{skill}</p>
-              </div>
+              <Badge
+                key={`bottom-${index}`}
+                className={`
+                  mx-2 px-6 py-3 border 
+                  shadow transition-transform duration-200 
+                  hover:scale-110 hover:brightness-105 hover:shadow-lg
+                  font-semibold text-base
+                  ${badgeColors[(index + 3) % badgeColors.length]}
+                `}
+              >
+                {skill}
+              </Badge>
             ))}
           </div>
         </div>
@@ -52,3 +84,4 @@ const Skills: React.FC = () => {
 };
 
 export default Skills;
+
