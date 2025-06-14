@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { ArrowRight, Briefcase } from 'lucide-react';
 import TypingText from './TypingText';
@@ -5,6 +6,26 @@ import { useScrollZoom } from '../hooks/useScrollZoom';
 
 const Hero: React.FC = () => {
   const { scrollY, scale } = useScrollZoom();
+
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'center'
+      });
+    }
+  };
+
+  const scrollToProjects = () => {
+    const projectsSection = document.getElementById('projects');
+    if (projectsSection) {
+      projectsSection.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden py-16 md:py-0">
@@ -29,11 +50,17 @@ const Hero: React.FC = () => {
               This is my personal website, where you can learn more about me and my work. I am a passionate developer with a focus on creating user-friendly and efficient web applications.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-              <button className="group flex items-center justify-center gap-2 px-8 py-4 bg-gray-800 text-white rounded-full font-semibold transition-all duration-300 hover:bg-gray-900 hover:scale-105">
+              <button 
+                onClick={scrollToContact}
+                className="group flex items-center justify-center gap-2 px-8 py-4 bg-gray-800 text-white rounded-full font-semibold transition-all duration-300 hover:bg-gray-900 hover:scale-105"
+              >
                 <Briefcase size={20} />
                 <span>Hire Me</span>
               </button>
-              <button className="group flex items-center justify-center gap-2 px-8 py-4 bg-white border border-gray-300 text-gray-700 rounded-full font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg">
+              <button 
+                onClick={scrollToProjects}
+                className="group flex items-center justify-center gap-2 px-8 py-4 bg-white border border-gray-300 text-gray-700 rounded-full font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg"
+              >
                 <span>Explore</span>
                 <ArrowRight size={20} className="transition-transform duration-300 group-hover:translate-x-1" />
               </button>
