@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Github, Mail, Phone, Heart } from 'lucide-react';
+import { Github, Mail, Phone, Heart, Linkedin, Twitter, Instagram } from 'lucide-react';
 
 const Footer: React.FC = () => {
   const socialLinks = [
@@ -8,6 +8,21 @@ const Footer: React.FC = () => {
       icon: <Github className="w-5 h-5" />,
       href: "https://github.com",
       label: "GitHub"
+    },
+    {
+      icon: <Linkedin className="w-5 h-5" />,
+      href: "https://linkedin.com/in/johndoe",
+      label: "LinkedIn"
+    },
+    {
+      icon: <Twitter className="w-5 h-5" />,
+      href: "https://twitter.com/johndoe",
+      label: "Twitter"
+    },
+    {
+      icon: <Instagram className="w-5 h-5" />,
+      href: "https://instagram.com/johndoe",
+      label: "Instagram"
     },
     {
       icon: <Mail className="w-5 h-5" />,
