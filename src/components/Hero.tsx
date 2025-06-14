@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { ArrowRight, Briefcase } from 'lucide-react';
+import TypingText from './TypingText';
 
 const Hero: React.FC = () => {
   return (
@@ -11,9 +12,9 @@ const Hero: React.FC = () => {
           <div className="md:w-1/2 text-center md:text-left animate-fade-in-up">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 mb-4">
               Welcome, I Am a
-              <span className="block mt-2">
+              <span className="block mt-2 h-16 md:h-20">
                 <span className="bg-gray-200/80 px-4 py-2 rounded-lg inline-block">
-                  Full Stack Developer
+                  <TypingText texts={["Full Stack Developer", "UI/UX Enthusiast", "Problem Solver"]} />
                 </span>
               </span>
             </h1>

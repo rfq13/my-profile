@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { Home, User, Code, Briefcase, Mail } from 'lucide-react';
+import { Home, User, Code, Briefcase, Mail, History } from 'lucide-react';
 
 const BottomNav: React.FC = () => {
   const [activeNav, setActiveNav] = useState('#home');
@@ -9,6 +9,7 @@ const BottomNav: React.FC = () => {
     { name: 'Home', href: '#home', icon: Home },
     { name: 'About', href: '#about', icon: User },
     { name: 'Skills', href: '#skills', icon: Code },
+    { name: 'Experience', href: '#experience', icon: History },
     { name: 'Projects', href: '#projects', icon: Briefcase },
     { name: 'Contact', href: '#contact', icon: Mail }
   ];
