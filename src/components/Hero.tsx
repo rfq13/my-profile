@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { ArrowDown } from 'lucide-react';
+import TypingText from './TypingText';
 
 const Hero: React.FC = () => {
   return (
@@ -16,23 +17,34 @@ const Hero: React.FC = () => {
         <div className="text-center">
           <div className="animate-fade-in-up">
             <h1 className="text-5xl md:text-7xl font-bold mb-6">
-              <span className="block text-white/90 text-shadow">Hi, I'm</span>
+              <span className="block text-white/90 text-shadow">
+                <TypingText text="Hi, I'm" speed={150} delay={500} />
+              </span>
               <span className="block neon-text animate-neon-pulse text-6xl md:text-8xl">
-                John Doe
+                <TypingText text="John Doe" speed={120} delay={2000} />
               </span>
             </h1>
           </div>
           
           <div className="animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
             <p className="text-xl md:text-2xl text-white/70 mb-8 max-w-2xl mx-auto">
-              Full Stack Developer & UI/UX Designer
+              <TypingText 
+                text="Full Stack Developer & UI/UX Designer" 
+                speed={80} 
+                delay={4500} 
+                showCursor={false}
+              />
             </p>
           </div>
 
           <div className="animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
             <p className="text-lg text-white/60 mb-12 max-w-3xl mx-auto">
-              I create beautiful, functional websites and applications that provide exceptional user experiences. 
-              Passionate about modern web technologies and clean code.
+              <TypingText 
+                text="I create beautiful, functional websites and applications that provide exceptional user experiences. Passionate about modern web technologies and clean code."
+                speed={50}
+                delay={7000}
+                showCursor={false}
+              />
             </p>
           </div>
 
