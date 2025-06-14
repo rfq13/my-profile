@@ -21,7 +21,7 @@ const Hero: React.FC = () => {
                 <TypingText text="Hi, I'm" speed={150} delay={500} />
               </span>
               <span className="block neon-text animate-neon-pulse text-6xl md:text-8xl">
-                <TypingText text="John Doe" speed={120} delay={2000} />
+                <TypingText text="John Doe" speed={120} delay={2000} loop={true} />
               </span>
             </h1>
           </div>

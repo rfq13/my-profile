@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -94,10 +95,10 @@ export default {
 				},
 				'neon-pulse': {
 					'0%, 100%': {
-						textShadow: '0 0 5px currentColor, 0 0 10px currentColor, 0 0 15px currentColor, 0 0 20px currentColor'
+						textShadow: '0 0 4px currentColor, 0 0 8px currentColor'
 					},
 					'50%': {
-						textShadow: '0 0 2px currentColor, 0 0 5px currentColor, 0 0 8px currentColor, 0 0 12px currentColor'
+						textShadow: '0 0 2px currentColor, 0 0 4px currentColor'
 					}
 				},
 				'neon-glow': {

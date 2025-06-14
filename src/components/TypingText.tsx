@@ -8,6 +8,8 @@ interface TypingTextProps {
   delay?: number;
   className?: string;
   showCursor?: boolean;
+  loop?: boolean;
+  loopDelay?: number;
 }
 
 const TypingText: React.FC<TypingTextProps> = ({ 
@@ -15,9 +17,11 @@ const TypingText: React.FC<TypingTextProps> = ({
   speed = 100, 
   delay = 0, 
   className = '', 
-  showCursor = true 
+  showCursor = true,
+  loop = false,
+  loopDelay,
 }) => {
-  const { displayText, isTyping } = useTyping({ text, speed, delay });
+  const { displayText, isTyping } = useTyping({ text, speed, delay, loop, loopDelay });
 
   return (
     <span className={className}>
