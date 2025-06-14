@@ -10,14 +10,16 @@ const Hero: React.FC = () => {
         <div className="flex flex-col md:flex-row items-center gap-12">
           
           <div className="md:w-1/2 text-center md:text-left animate-fade-in-up">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 mb-4">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 mb-6">
               Welcome, I Am a
-              <span className="block mt-2 h-16 md:h-20">
-                <span className="bg-gray-200/80 px-4 py-2 rounded-lg inline-block">
+            </h1>
+            <div className="mb-8">
+              <div className="bg-gray-100 px-6 py-4 rounded-xl inline-block min-h-[4rem] flex items-center">
+                <span className="text-2xl md:text-3xl font-bold text-gray-800">
                   <TypingText texts={["Full Stack Developer", "UI/UX Enthusiast", "Problem Solver"]} />
                 </span>
-              </span>
-            </h1>
+              </div>
+            </div>
             <p className="text-lg text-gray-600 mb-8 max-w-xl mx-auto md:mx-0">
               This is my personal website, where you can learn more about me and my work. I am a passionate developer with a focus on creating user-friendly and efficient web applications.
             </p>
@@ -35,14 +37,14 @@ const Hero: React.FC = () => {
 
           <div className="md:w-1/2 flex justify-center animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
             <div className="relative">
-              <div className="absolute -inset-2 bg-gradient-to-br from-orange-400 to-purple-500 rounded-2xl blur-lg opacity-50 animate-spin-slow"></div>
-              <div className="relative light-card p-4">
+              <div className="absolute -inset-2 bg-gradient-to-br from-blue-400 to-purple-500 rounded-2xl blur-lg opacity-30"></div>
+              <div className="relative bg-white/60 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-200/80 p-4">
                 <img
                   src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&q=80"
                   alt="John Doe"
                   className="w-80 h-80 object-cover rounded-xl shadow-md"
                 />
-                <div className="absolute bottom-4 left-4 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-lg text-gray-800 font-semibold">
+                <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-lg text-gray-800 font-semibold shadow-md">
                   John Doe
                 </div>
               </div>
