@@ -1,15 +1,20 @@
-
 import React from 'react';
 import { ArrowRight, Briefcase } from 'lucide-react';
 import TypingText from './TypingText';
+import { useScrollZoom } from '../hooks/useScrollZoom';
 
 const Hero: React.FC = () => {
+  const { scrollY, scale } = useScrollZoom();
+
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden py-16 md:py-0">
       <div className="container mx-auto px-4 z-10">
         <div className="flex flex-col md:flex-row items-center gap-12">
           
-          <div className="md:w-1/2 text-center md:text-left animate-fade-in-up">
+          <div 
+            className="md:w-1/2 text-center md:text-left animate-fade-in-up transition-transform duration-300 ease-out"
+            style={{ transform: `scale(${Math.max(0.95, 1 - scrollY * 0.0002)})` }}
+          >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 mb-6">
               Welcome, I Am a
             </h1>
@@ -35,7 +40,13 @@ const Hero: React.FC = () => {
             </div>
           </div>
 
-          <div className="md:w-1/2 flex justify-center animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+          <div 
+            className="md:w-1/2 flex justify-center animate-fade-in-up transition-transform duration-300 ease-out" 
+            style={{ 
+              animationDelay: '0.2s',
+              transform: `scale(${scale}) translateY(${scrollY * 0.1}px)`
+            }}
+          >
             <div className="relative">
               <div className="absolute -inset-2 bg-gradient-to-br from-blue-400 to-purple-500 rounded-2xl blur-lg opacity-30"></div>
               <div className="relative bg-white/60 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-200/80 p-4">

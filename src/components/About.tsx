@@ -1,8 +1,9 @@
-
 import React from 'react';
 import { Code, Palette, Rocket, Heart } from 'lucide-react';
+import { useScrollZoom } from '../hooks/useScrollZoom';
 
 const About: React.FC = () => {
+  const { scrollY } = useScrollZoom();
   const features = [
     {
       icon: <Code className="w-8 h-8" />,
@@ -37,7 +38,10 @@ const About: React.FC = () => {
         </div>
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="animate-slide-in-left">
+          <div 
+            className="animate-slide-in-left transition-transform duration-300 ease-out"
+            style={{ transform: `translateX(${Math.max(-20, -scrollY * 0.05)}px)` }}
+          >
             <div className="light-card p-8">
               <h3 className="text-2xl font-bold text-gray-900 mb-6">
                 Full Stack Developer with 5+ years of experience
@@ -68,13 +72,19 @@ const About: React.FC = () => {
             </div>
           </div>
 
-          <div className="animate-slide-in-right">
+          <div 
+            className="animate-slide-in-right transition-transform duration-300 ease-out"
+            style={{ transform: `translateX(${Math.min(20, scrollY * 0.05)}px)` }}
+          >
             <div className="grid grid-cols-2 gap-6">
               {features.map((feature, index) => (
                 <div
                   key={index}
-                  className="light-card p-6 text-center hover-lift group cursor-pointer"
-                  style={{ animationDelay: `${index * 0.1}s` }}
+                  className="light-card p-6 text-center hover-lift group cursor-pointer transition-transform duration-300 ease-out"
+                  style={{ 
+                    animationDelay: `${index * 0.1}s`,
+                    transform: `scale(${1 + Math.sin(scrollY * 0.01 + index) * 0.02})`
+                  }}
                 >
                   <div className="text-orange-500 mb-4 group-hover:scale-110 transition-transform duration-300 flex justify-center">
                     {feature.icon}
