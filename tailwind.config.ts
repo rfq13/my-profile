@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -109,6 +108,28 @@ export default {
 						boxShadow: '0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor'
 					}
 				},
+				'neon-border': {
+					'0%': {
+						borderColor: '#00d4ff',
+						boxShadow: '0 0 5px #00d4ff, inset 0 0 5px #00d4ff'
+					},
+					'25%': {
+						borderColor: '#a855f7',
+						boxShadow: '0 0 10px #a855f7, inset 0 0 10px #a855f7'
+					},
+					'50%': {
+						borderColor: '#ec4899',
+						boxShadow: '0 0 15px #ec4899, inset 0 0 15px #ec4899'
+					},
+					'75%': {
+						borderColor: '#10b981',
+						boxShadow: '0 0 10px #10b981, inset 0 0 10px #10b981'
+					},
+					'100%': {
+						borderColor: '#00d4ff',
+						boxShadow: '0 0 5px #00d4ff, inset 0 0 5px #00d4ff'
+					}
+				},
 				'pulse-ring': {
 					'0%': {
 						transform: 'scale(1)',
@@ -189,6 +210,7 @@ export default {
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'neon-pulse': 'neon-pulse 2s ease-in-out infinite',
 				'neon-glow': 'neon-glow 2s ease-in-out infinite',
+				'neon-border': 'neon-border 3s ease-in-out infinite',
 				'pulse-ring': 'pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
 				'float': 'float 3s ease-in-out infinite',
 				'slide-in-left': 'slide-in-left 0.6s ease-out',

@@ -39,17 +39,17 @@ const Skills: React.FC = () => {
     <section id="skills" className="py-20 relative">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 gradient-text animate-fade-in-up">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 neon-text animate-neon-pulse">
             Skills & Expertise
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-neon-blue to-neon-purple mx-auto animate-scale-in"></div>
+          <div className="w-24 h-1 bg-neon-blue mx-auto animate-scale-in"></div>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
           {skillCategories.map((category, categoryIndex) => (
             <div
               key={category.title}
-              className="glass-effect-dark rounded-2xl p-8 hover-lift animate-fade-in-up"
+              className="glass-effect-dark rounded-2xl p-8 hover-lift animate-fade-in-up neon-border"
               style={{ animationDelay: `${categoryIndex * 0.2}s` }}
             >
               <h3 className="text-2xl font-bold text-white mb-8 text-center">
@@ -64,7 +64,7 @@ const Skills: React.FC = () => {
                     </div>
                     <div className="w-full bg-white/10 rounded-full h-2 overflow-hidden">
                       <div
-                        className="h-full bg-gradient-to-r from-neon-blue to-neon-purple rounded-full transition-all duration-1000 ease-out relative overflow-hidden"
+                        className="h-full bg-neon-blue rounded-full transition-all duration-1000 ease-out relative overflow-hidden"
                         style={{ 
                           width: `${skill.level}%`,
                           animationDelay: `${(categoryIndex * 0.2) + (skillIndex * 0.1)}s`

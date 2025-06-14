@@ -30,15 +30,15 @@ const About: React.FC = () => {
     <section id="about" className="py-20 relative">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 gradient-text animate-fade-in-up">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 neon-text animate-neon-pulse">
             About Me
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-neon-blue to-neon-purple mx-auto animate-scale-in"></div>
+          <div className="w-24 h-1 bg-neon-blue mx-auto animate-scale-in"></div>
         </div>
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="animate-slide-in-left">
-            <div className="glass-effect-dark rounded-2xl p-8 hover-lift">
+            <div className="glass-effect-dark rounded-2xl p-8 hover-lift neon-border-static">
               <h3 className="text-2xl font-bold text-white mb-6">
                 Full Stack Developer with 5+ years of experience
               </h3>
@@ -73,7 +73,7 @@ const About: React.FC = () => {
               {features.map((feature, index) => (
                 <div
                   key={index}
-                  className="glass-effect-dark rounded-xl p-6 text-center hover-lift group cursor-pointer transition-all duration-300"
+                  className="glass-effect-dark rounded-xl p-6 text-center hover-lift group cursor-pointer transition-all duration-300 border border-white/10 hover:border-neon-blue/50"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   <div className="text-neon-blue mb-4 group-hover:scale-110 transition-transform duration-300 flex justify-center">

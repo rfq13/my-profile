@@ -38,12 +38,11 @@ const Hero: React.FC = () => {
 
           <div className="animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <button className="group relative px-8 py-4 bg-gradient-to-r from-neon-blue to-neon-purple rounded-full text-white font-semibold transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-neon-blue/25 overflow-hidden">
+              <button className="group relative px-8 py-4 bg-neon-blue/20 neon-border rounded-full text-white font-semibold transition-all duration-300 hover:scale-105 hover:bg-neon-blue/30 overflow-hidden">
                 <span className="relative z-10">View My Work</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-neon-purple to-neon-pink opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </button>
               
-              <button className="group px-8 py-4 glass-effect-dark rounded-full text-white font-semibold transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-white/10 hover-lift">
+              <button className="group px-8 py-4 glass-effect-dark rounded-full text-white font-semibold transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-white/10 hover-lift border border-white/20 hover:border-neon-blue/50">
                 <span>Get In Touch</span>
               </button>
             </div>
