@@ -1,6 +1,5 @@
-
 import React, { useState, useEffect } from 'react';
-import { Trophy, Users, Star } from 'lucide-react';
+import { Trophy, Users, Star, Dock, Zap, Figma, Clipboard, Cloud, PlayCircle, FileCode2, Wrench } from 'lucide-react';
 import SkeletonCard from './SkeletonCard';
 import ProjectCard from "./ProjectCard";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
@@ -86,7 +85,7 @@ const Projects: React.FC = () => {
         },
         {
           toolName: "Confluence",
-          icon: <ClipboardSignature size={16} className="text-blue-400" />,
+          icon: <Clipboard size={16} className="text-blue-400" />,
           docUrl: "https://confluence.atlassian.com/",
           description: "Dokumentasi kolaboratif"
         }
