@@ -9,20 +9,23 @@ import Projects from '../components/Projects';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 import BottomNav from '../components/BottomNav';
+import { ThemeProvider } from '../contexts/ThemeContext';
 
 const Index: React.FC = () => {
   return (
-    <div className="min-h-screen">
-      <Header />
-      <Hero />
-      <About />
-      <Skills />
-      <Experience />
-      <Projects />
-      <Contact />
-      <Footer />
-      <BottomNav />
-    </div>
+    <ThemeProvider>
+      <div className="min-h-screen">
+        <Header />
+        <Hero />
+        <About />
+        <Skills />
+        <Experience />
+        <Projects />
+        <Contact />
+        <Footer />
+        <BottomNav />
+      </div>
+    </ThemeProvider>
   );
 };
 
