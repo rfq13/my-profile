@@ -84,13 +84,13 @@ const Projects: React.FC = () => {
   }, []);
 
   return (
-    <section id="projects" className="py-20 relative bg-gray-50">
+    <section id="projects" className="py-20 relative bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 gradient-text animate-fade-in-up">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-800">
             Featured Projects
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-orange-500 to-purple-600 mx-auto animate-scale-in"></div>
+          <div className="w-24 h-1 bg-gray-800 mx-auto animate-scale-in"></div>
           <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
             Here are some of my recent projects that showcase my skills and expertise in web development.
           </p>
@@ -105,9 +105,9 @@ const Projects: React.FC = () => {
             projects.map((project, index) => (
               <div
                 key={project.id}
-                className="group light-card overflow-hidden hover-lift animate-fade-in-up p-1"
+                className="group light-card overflow-hidden hover-lift animate-fade-in-up p-6"
               >
-                <div className="relative overflow-hidden rounded-xl">
+                <div className="relative overflow-hidden rounded-xl mb-4">
                   <img
                     src={project.image}
                     alt={project.title}
@@ -130,7 +130,7 @@ const Projects: React.FC = () => {
                   </div>
                 </div>
                 
-                <div className="p-5">
+                <div>
                   <h3 className="text-xl font-bold text-gray-800 mb-3 group-hover:text-orange-500 transition-colors duration-300">
                     {project.title}
                   </h3>
@@ -147,7 +147,7 @@ const Projects: React.FC = () => {
                       </span>
                     ))}
                   </div>
-                  <button className="flex items-center gap-2 text-orange-600 font-medium hover:text-purple-600 transition-colors duration-300 group">
+                  <button className="px-6 py-3 bg-orange-500 text-white rounded-full font-semibold transition-all duration-300 hover:bg-orange-600 hover:scale-105 shadow-md flex items-center gap-2 group">
                     <span>View Project</span>
                     <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-300" />
                   </button>
