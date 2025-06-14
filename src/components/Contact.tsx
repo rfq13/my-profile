@@ -24,52 +24,54 @@ const Contact: React.FC = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulasi submit API
-    await new Promise((resolve) => setTimeout(resolve, 1600));
+    await new Promise((resolve) => setTimeout(resolve, 1500));
 
     setIsSubmitting(false);
     setIsSubmitted(true);
     setFormData({ email: "", message: "" });
 
-    setTimeout(() => setIsSubmitted(false), 2600);
+    setTimeout(() => setIsSubmitted(false), 2200);
   };
 
   return (
     <section
       id="contact"
-      className="py-20 flex items-center justify-center bg-gradient-to-tr from-neon-blue/10 via-neon-purple/10 to-transparent"
+      className="py-20 flex items-center justify-center bg-white/0"
     >
-      <div className="w-full max-w-lg mx-auto glass-effect-dark rounded-2xl shadow-lg px-7 py-10 animate-fade-in-up">
-        <h2 className="text-3xl font-bold text-center mb-2 gradient-text">Get In Touch</h2>
-        <p className="text-white/80 text-center mb-8 text-base">
-          Tertarik berdiskusi atau bekerja sama? Kirim email & pesan singkatmu!
+      {/* Card utama dengan white glass effect, border dan shadow mirip Hero img */}
+      <div className="w-full max-w-md mx-auto rounded-2xl border-2 border-blue-400/40 shadow-xl bg-white/70 backdrop-blur-md px-6 py-10 animate-fade-in-up">
+        <h2 className="text-3xl font-bold text-center mb-2 bg-gradient-to-r from-blue-500 via-purple-500 to-purple-400 bg-clip-text text-transparent drop-shadow">
+          Get In Touch
+        </h2>
+        <p className="text-gray-700/90 text-center mb-7 text-base font-medium">
+          Kirim pesan singkat & emailmu.<br />Aku akan balas dalam waktu singkat!
         </p>
-        <form className="space-y-6" onSubmit={handleSubmit}>
+        <form className="space-y-4" onSubmit={handleSubmit}>
           <Input
             type="email"
             name="email"
-            placeholder="Email aktif kamu"
+            placeholder="Email aktif"
             autoComplete="email"
             value={formData.email}
             onChange={handleChange}
             disabled={isSubmitting}
             required
-            className="bg-background/80 border border-white/20 placeholder:text-white/50"
+            className="bg-white/80 border-2 border-blue-200/60 placeholder:text-blue-400/60 text-gray-800 font-semibold focus:border-blue-400 focus:ring-2 focus:ring-blue-200 shadow-none"
           />
           <Textarea
             name="message"
             placeholder="Tulis pesan singkat..."
             value={formData.message}
             onChange={handleChange}
-            maxLength={350}
+            maxLength={320}
             required
             rows={4}
             disabled={isSubmitting}
-            className="bg-background/80 border border-white/20 placeholder:text-white/50 resize-none"
+            className="bg-white/80 border-2 border-purple-200/60 placeholder:text-purple-400/50 text-gray-800 font-semibold focus:border-purple-400 focus:ring-2 focus:ring-purple-200 shadow-none resize-none"
           />
           <Button
             type="submit"
-            className="w-full mt-2 flex items-center justify-center gap-2 bg-gradient-to-r from-neon-blue to-neon-purple font-semibold py-3 rounded-lg text-lg hover:scale-105 hover:shadow-lg transition-transform duration-300"
+            className="w-full mt-2 flex items-center justify-center gap-2 bg-gradient-to-r from-blue-500 via-blue-400 to-purple-500 font-bold py-3 rounded-xl text-lg text-white hover:scale-105 hover:shadow-xl transition-all duration-300"
             disabled={isSubmitting}
           >
             {isSubmitting && (
@@ -79,7 +81,7 @@ const Contact: React.FC = () => {
             )}
             {!isSubmitting && isSubmitted && (
               <>
-                <CheckCircle size={21} className="text-green-400" /> Pesan Terkirim!
+                <CheckCircle size={22} className="text-green-400" /> Terkirim!
               </>
             )}
             {!isSubmitting && !isSubmitted && (
@@ -89,7 +91,9 @@ const Contact: React.FC = () => {
             )}
           </Button>
         </form>
-        <div className="mt-6 text-xs text-center text-white/40">Respons cepat & privasi terjamin.</div>
+        <div className="mt-7 text-xs text-center text-blue-400/70 font-medium">
+          Kamu tidak akan menerima spam. <br /> Chat dibalas dalam 1x24 jam.
+        </div>
       </div>
     </section>
   );
