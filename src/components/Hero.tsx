@@ -1,72 +1,53 @@
 
 import React from 'react';
-import { ArrowDown } from 'lucide-react';
-import TypingText from './TypingText';
+import { ArrowRight, Briefcase } from 'lucide-react';
 
 const Hero: React.FC = () => {
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* Animated Background Blobs */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 left-20 w-72 h-72 bg-neon-blue/20 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
-        <div className="absolute top-40 right-20 w-72 h-72 bg-neon-purple/20 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
-        <div className="absolute -bottom-8 left-20 w-72 h-72 bg-neon-pink/20 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
-      </div>
-
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center">
-          <div className="animate-fade-in-up">
-            <h1 className="text-5xl md:text-7xl font-bold mb-6">
-              <span className="block text-white/90 text-shadow">
-                <TypingText text="Hi, I'm" speed={150} delay={500} />
-              </span>
-              <span className="block neon-text animate-neon-pulse text-6xl md:text-8xl">
-                <TypingText text="John Doe" speed={120} delay={2000} loop={true} />
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden py-16 md:py-0">
+      <div className="container mx-auto px-4 z-10">
+        <div className="flex flex-col md:flex-row items-center gap-12">
+          
+          <div className="md:w-1/2 text-center md:text-left animate-fade-in-up">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 mb-4">
+              Welcome, I Am a
+              <span className="block mt-2">
+                <span className="bg-gray-200/80 px-4 py-2 rounded-lg inline-block">
+                  Full Stack Developer
+                </span>
               </span>
             </h1>
-          </div>
-          
-          <div className="animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-            <p className="text-xl md:text-2xl text-white/70 mb-8 max-w-2xl mx-auto">
-              <TypingText 
-                text="Full Stack Developer & UI/UX Designer" 
-                speed={80} 
-                delay={4500} 
-                showCursor={false}
-              />
+            <p className="text-lg text-gray-600 mb-8 max-w-xl mx-auto md:mx-0">
+              This is my personal website, where you can learn more about me and my work. I am a passionate developer with a focus on creating user-friendly and efficient web applications.
             </p>
-          </div>
-
-          <div className="animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
-            <p className="text-lg text-white/60 mb-12 max-w-3xl mx-auto">
-              <TypingText 
-                text="I create beautiful, functional websites and applications that provide exceptional user experiences. Passionate about modern web technologies and clean code."
-                speed={50}
-                delay={7000}
-                showCursor={false}
-              />
-            </p>
-          </div>
-
-          <div className="animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <button className="group relative px-8 py-4 bg-neon-blue/20 neon-border rounded-full text-white font-semibold transition-all duration-300 hover:scale-105 hover:bg-neon-blue/30 overflow-hidden">
-                <span className="relative z-10">View My Work</span>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+              <button className="group flex items-center justify-center gap-2 px-8 py-4 bg-gray-800 text-white rounded-full font-semibold transition-all duration-300 hover:bg-gray-900 hover:scale-105">
+                <Briefcase size={20} />
+                <span>Hire Me</span>
               </button>
-              
-              <button className="group px-8 py-4 glass-effect-dark rounded-full text-white font-semibold transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-white/10 hover-lift border border-white/20 hover:border-neon-blue/50">
-                <span>Get In Touch</span>
+              <button className="group flex items-center justify-center gap-2 px-8 py-4 bg-white border border-gray-300 text-gray-700 rounded-full font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                <span>Explore</span>
+                <ArrowRight size={20} className="transition-transform duration-300 group-hover:translate-x-1" />
               </button>
             </div>
           </div>
 
-          {/* Scroll Indicator */}
-          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-float">
-            <div className="flex flex-col items-center">
-              <span className="text-white/60 text-sm mb-2">Scroll Down</span>
-              <ArrowDown className="text-neon-blue animate-pulse" size={24} />
+          <div className="md:w-1/2 flex justify-center animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+            <div className="relative">
+              <div className="absolute -inset-2 bg-gradient-to-br from-orange-400 to-purple-500 rounded-2xl blur-lg opacity-50 animate-spin-slow"></div>
+              <div className="relative light-card p-4">
+                <img
+                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&q=80"
+                  alt="John Doe"
+                  className="w-80 h-80 object-cover rounded-xl shadow-md"
+                />
+                <div className="absolute bottom-4 left-4 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-lg text-gray-800 font-semibold">
+                  John Doe
+                </div>
+              </div>
             </div>
           </div>
+
         </div>
       </div>
     </section>

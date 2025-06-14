@@ -2,87 +2,42 @@
 import React from 'react';
 
 const Skills: React.FC = () => {
-  const skillCategories = [
-    {
-      title: "Frontend",
-      skills: [
-        { name: "React", level: 95 },
-        { name: "TypeScript", level: 90 },
-        { name: "Tailwind CSS", level: 92 },
-        { name: "Next.js", level: 88 },
-        { name: "Vue.js", level: 75 }
-      ]
-    },
-    {
-      title: "Backend",
-      skills: [
-        { name: "Node.js", level: 90 },
-        { name: "Python", level: 85 },
-        { name: "Express.js", level: 88 },
-        { name: "MongoDB", level: 82 },
-        { name: "PostgreSQL", level: 80 }
-      ]
-    },
-    {
-      title: "Tools & Others",
-      skills: [
-        { name: "Git", level: 95 },
-        { name: "Docker", level: 78 },
-        { name: "AWS", level: 75 },
-        { name: "Figma", level: 85 },
-        { name: "GraphQL", level: 70 }
-      ]
-    }
+  const skills = [
+    "React", "TypeScript", "Tailwind CSS", "Next.js", "Vue.js",
+    "Node.js", "Python", "Express.js", "MongoDB", "PostgreSQL",
+    "Git", "Docker", "AWS", "Figma", "GraphQL", "JavaScript", "HTML", "CSS"
   ];
 
+  const duplicatedSkills = [...skills, ...skills];
+
   return (
-    <section id="skills" className="py-20 relative">
+    <section id="skills" className="py-20 bg-white/50">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 neon-text animate-neon-pulse">
-            Skills & Expertise
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+            My Tech Stack
           </h2>
-          <div className="w-24 h-1 bg-neon-blue mx-auto animate-scale-in"></div>
+          <p className="text-gray-600 max-w-2xl mx-auto">
+            I work with a variety of modern technologies to build high-quality web applications.
+          </p>
         </div>
-
-        <div className="grid md:grid-cols-3 gap-8">
-          {skillCategories.map((category, categoryIndex) => (
-            <div
-              key={category.title}
-              className="glass-effect-dark rounded-2xl p-8 hover-lift animate-fade-in-up neon-border"
-              style={{ animationDelay: `${categoryIndex * 0.2}s` }}
-            >
-              <h3 className="text-2xl font-bold text-white mb-8 text-center">
-                {category.title}
-              </h3>
-              <div className="space-y-6">
-                {category.skills.map((skill, skillIndex) => (
-                  <div key={skill.name} className="group">
-                    <div className="flex justify-between items-center mb-2">
-                      <span className="text-white/90 font-medium">{skill.name}</span>
-                      <span className="text-neon-blue text-sm">{skill.level}%</span>
-                    </div>
-                    <div className="w-full bg-white/10 rounded-full h-2 overflow-hidden">
-                      <div
-                        className="h-full bg-neon-blue rounded-full transition-all duration-1000 ease-out relative overflow-hidden"
-                        style={{ 
-                          width: `${skill.level}%`,
-                          animationDelay: `${(categoryIndex * 0.2) + (skillIndex * 0.1)}s`
-                        }}
-                      >
-                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-shimmer"></div>
-                      </div>
-                    </div>
-                  </div>
-                ))}
+        
+        <div className="relative flex flex-col gap-4 overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]">
+           <div className="flex w-max animate-marquee">
+            {duplicatedSkills.map((skill, index) => (
+              <div key={`top-${index}`} className="mx-4 px-6 py-3 bg-white shadow-md rounded-lg border border-gray-200">
+                <p className="text-lg font-medium text-gray-700">{skill}</p>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+           <div className="flex w-max animate-marquee-reverse">
+            {duplicatedSkills.map((skill, index) => (
+              <div key={`bottom-${index}`} className="mx-4 px-6 py-3 bg-white shadow-md rounded-lg border border-gray-200">
+                <p className="text-lg font-medium text-gray-700">{skill}</p>
+              </div>
+            ))}
+          </div>
         </div>
-
-        {/* Floating Elements */}
-        <div className="absolute top-10 right-10 w-20 h-20 bg-neon-blue/20 rounded-full animate-float"></div>
-        <div className="absolute bottom-10 left-10 w-16 h-16 bg-neon-purple/20 rounded-full animate-float animation-delay-2000"></div>
       </div>
     </section>
   );

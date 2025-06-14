@@ -27,41 +27,41 @@ const About: React.FC = () => {
   ];
 
   return (
-    <section id="about" className="py-20 relative">
+    <section id="about" className="py-20 relative bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 neon-text animate-neon-pulse">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-800">
             About Me
           </h2>
-          <div className="w-24 h-1 bg-neon-blue mx-auto animate-scale-in"></div>
+          <div className="w-24 h-1 bg-gray-800 mx-auto"></div>
         </div>
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="animate-slide-in-left">
-            <div className="glass-effect-dark rounded-2xl p-8 hover-lift neon-border-static">
-              <h3 className="text-2xl font-bold text-white mb-6">
+            <div className="light-card p-8">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">
                 Full Stack Developer with 5+ years of experience
               </h3>
-              <p className="text-white/80 leading-relaxed mb-6">
+              <p className="text-gray-700 leading-relaxed mb-6">
                 I'm passionate about creating digital experiences that are not only beautiful but also functional. 
                 My journey in web development started with a curiosity about how websites work, and it has evolved 
                 into a career where I get to solve complex problems and build amazing applications.
               </p>
-              <p className="text-white/80 leading-relaxed mb-6">
+              <p className="text-gray-700 leading-relaxed mb-6">
                 I specialize in React, Node.js, and modern web technologies. I believe in writing clean, 
                 maintainable code and creating user experiences that delight and engage users.
               </p>
               <div className="flex flex-wrap gap-3">
-                <span className="px-4 py-2 glass-effect rounded-full text-sm text-neon-blue border border-neon-blue/30">
+                <span className="px-4 py-2 bg-gray-100 rounded-full text-sm text-gray-700 border border-gray-200">
                   React
                 </span>
-                <span className="px-4 py-2 glass-effect rounded-full text-sm text-neon-purple border border-neon-purple/30">
+                <span className="px-4 py-2 bg-gray-100 rounded-full text-sm text-gray-700 border border-gray-200">
                   TypeScript
                 </span>
-                <span className="px-4 py-2 glass-effect rounded-full text-sm text-neon-pink border border-neon-pink/30">
+                <span className="px-4 py-2 bg-gray-100 rounded-full text-sm text-gray-700 border border-gray-200">
                   Node.js
                 </span>
-                <span className="px-4 py-2 glass-effect rounded-full text-sm text-neon-green border border-neon-green/30">
+                <span className="px-4 py-2 bg-gray-100 rounded-full text-sm text-gray-700 border border-gray-200">
                   MongoDB
                 </span>
               </div>
@@ -73,14 +73,14 @@ const About: React.FC = () => {
               {features.map((feature, index) => (
                 <div
                   key={index}
-                  className="glass-effect-dark rounded-xl p-6 text-center hover-lift group cursor-pointer transition-all duration-300 border border-white/10 hover:border-neon-blue/50"
+                  className="light-card p-6 text-center hover-lift group cursor-pointer"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  <div className="text-neon-blue mb-4 group-hover:scale-110 transition-transform duration-300 flex justify-center">
+                  <div className="text-orange-500 mb-4 group-hover:scale-110 transition-transform duration-300 flex justify-center">
                     {feature.icon}
                   </div>
-                  <h4 className="text-white font-semibold mb-2">{feature.title}</h4>
-                  <p className="text-white/70 text-sm">{feature.description}</p>
+                  <h4 className="text-gray-800 font-semibold mb-2">{feature.title}</h4>
+                  <p className="text-gray-600 text-sm">{feature.description}</p>
                 </div>
               ))}
             </div>

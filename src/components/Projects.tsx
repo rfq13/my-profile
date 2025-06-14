@@ -75,7 +75,6 @@ const Projects: React.FC = () => {
   ];
 
   useEffect(() => {
-    // Simulate API call
     const timer = setTimeout(() => {
       setProjects(mockProjects);
       setLoading(false);
@@ -85,14 +84,14 @@ const Projects: React.FC = () => {
   }, []);
 
   return (
-    <section id="projects" className="py-20 relative">
+    <section id="projects" className="py-20 relative bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 gradient-text animate-fade-in-up">
             Featured Projects
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-neon-blue to-neon-purple mx-auto animate-scale-in"></div>
-          <p className="text-white/70 mt-4 max-w-2xl mx-auto">
+          <div className="w-24 h-1 bg-gradient-to-r from-orange-500 to-purple-600 mx-auto animate-scale-in"></div>
+          <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
             Here are some of my recent projects that showcase my skills and expertise in web development.
           </p>
         </div>
@@ -106,10 +105,9 @@ const Projects: React.FC = () => {
             projects.map((project, index) => (
               <div
                 key={project.id}
-                className="group glass-effect-dark rounded-xl overflow-hidden hover-lift animate-fade-in-up"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                className="group light-card overflow-hidden hover-lift animate-fade-in-up p-1"
               >
-                <div className="relative overflow-hidden">
+                <div className="relative overflow-hidden rounded-xl">
                   <img
                     src={project.image}
                     alt={project.title}
@@ -119,37 +117,37 @@ const Projects: React.FC = () => {
                   <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <a
                       href={project.githubUrl}
-                      className="p-2 glass-effect rounded-full text-white hover:text-neon-blue transition-colors duration-300"
+                      className="p-2 bg-white/20 backdrop-blur-sm rounded-full text-white hover:text-orange-400 transition-colors duration-300"
                     >
                       <Github size={18} />
                     </a>
                     <a
                       href={project.liveUrl}
-                      className="p-2 glass-effect rounded-full text-white hover:text-neon-blue transition-colors duration-300"
+                      className="p-2 bg-white/20 backdrop-blur-sm rounded-full text-white hover:text-orange-400 transition-colors duration-300"
                     >
                       <ExternalLink size={18} />
                     </a>
                   </div>
                 </div>
                 
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-neon-blue transition-colors duration-300">
+                <div className="p-5">
+                  <h3 className="text-xl font-bold text-gray-800 mb-3 group-hover:text-orange-500 transition-colors duration-300">
                     {project.title}
                   </h3>
-                  <p className="text-white/70 text-sm mb-4 leading-relaxed">
+                  <p className="text-gray-600 text-sm mb-4 leading-relaxed">
                     {project.description}
                   </p>
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.technologies.map((tech, techIndex) => (
                       <span
                         key={techIndex}
-                        className="px-3 py-1 text-xs bg-gradient-to-r from-neon-blue/20 to-neon-purple/20 text-neon-blue rounded-full border border-neon-blue/30"
+                        className="px-3 py-1 text-xs bg-orange-100/50 text-orange-600 rounded-full border border-orange-200"
                       >
                         {tech}
                       </span>
                     ))}
                   </div>
-                  <button className="flex items-center gap-2 text-neon-blue font-medium hover:text-neon-purple transition-colors duration-300 group">
+                  <button className="flex items-center gap-2 text-orange-600 font-medium hover:text-purple-600 transition-colors duration-300 group">
                     <span>View Project</span>
                     <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-300" />
                   </button>

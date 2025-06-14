@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -93,44 +92,14 @@ export default {
 						height: '0'
 					}
 				},
-				'neon-pulse': {
-					'0%, 100%': {
-						textShadow: '0 0 4px currentColor, 0 0 8px currentColor'
-					},
-					'50%': {
-						textShadow: '0 0 2px currentColor, 0 0 4px currentColor'
-					}
-				},
-				'neon-glow': {
-					'0%, 100%': {
-						boxShadow: '0 0 5px currentColor, 0 0 10px currentColor, 0 0 15px currentColor'
-					},
-					'50%': {
-						boxShadow: '0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor'
-					}
-				},
-				'neon-border': {
-					'0%': {
-						borderColor: '#00d4ff',
-						boxShadow: '0 0 5px #00d4ff, inset 0 0 5px #00d4ff'
-					},
-					'25%': {
-						borderColor: '#a855f7',
-						boxShadow: '0 0 10px #a855f7, inset 0 0 10px #a855f7'
-					},
-					'50%': {
-						borderColor: '#ec4899',
-						boxShadow: '0 0 15px #ec4899, inset 0 0 15px #ec4899'
-					},
-					'75%': {
-						borderColor: '#10b981',
-						boxShadow: '0 0 10px #10b981, inset 0 0 10px #10b981'
-					},
-					'100%': {
-						borderColor: '#00d4ff',
-						boxShadow: '0 0 5px #00d4ff, inset 0 0 5px #00d4ff'
-					}
-				},
+				'marquee': {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-100%)' },
+        },
+        'marquee-reverse': {
+          '0%': { transform: 'translateX(-100%)' },
+          '100%': { transform: 'translateX(0%)' },
+        },
 				'pulse-ring': {
 					'0%': {
 						transform: 'scale(1)',
@@ -209,9 +178,8 @@ export default {
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
-				'neon-pulse': 'neon-pulse 2s ease-in-out infinite',
-				'neon-glow': 'neon-glow 2s ease-in-out infinite',
-				'neon-border': 'neon-border 3s ease-in-out infinite',
+        'marquee': 'marquee 30s linear infinite',
+        'marquee-reverse': 'marquee-reverse 30s linear infinite',
 				'pulse-ring': 'pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
 				'float': 'float 3s ease-in-out infinite',
 				'slide-in-left': 'slide-in-left 0.6s ease-out',
