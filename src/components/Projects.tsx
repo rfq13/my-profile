@@ -1,5 +1,6 @@
+
 import React, { useState, useEffect } from 'react';
-import { ArrowRight, Github, ExternalLink, Calendar, Users, Trophy, Star, Wrench, Server, Figma, Dock, Zap, Cloud, ClipboardSignature, PlayCircle, FileCode2 } from 'lucide-react';
+import { Trophy, Users, Star } from 'lucide-react';
 import SkeletonCard from './SkeletonCard';
 import ProjectCard from "./ProjectCard";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
@@ -215,30 +216,30 @@ const Projects: React.FC = () => {
 
   return (
     <TooltipProvider>
-      <section id="projects" className="py-20 relative bg-gradient-to-b from-gray-50 to-white">
+      <section id="projects" className="py-20 relative">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 gradient-text animate-fade-in-up">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-800 animate-fade-in-up">
               Project Portfolio
             </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-orange-500 to-purple-600 mx-auto animate-scale-in mb-6"></div>
+            <div className="w-24 h-1 bg-gray-800 mx-auto animate-scale-in mb-6"></div>
             <p className="text-gray-600 mt-4 max-w-3xl mx-auto text-lg leading-relaxed">
               Berikut adalah koleksi project terbaik yang telah saya kerjakan untuk berbagai klien. 
-              Setiap project dirancang dengan fokus pada <span className="font-semibold text-orange-600">hasil yang terukur</span> dan 
-              <span className="font-semibold text-purple-600"> pengalaman pengguna yang luar biasa</span>.
+              Setiap project dirancang dengan fokus pada <span className="font-semibold text-gray-800">hasil yang terukur</span> dan 
+              <span className="font-semibold text-gray-800"> pengalaman pengguna yang luar biasa</span>.
             </p>
             <div className="flex flex-wrap justify-center gap-4 mt-8">
-              <div className="flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-md border">
+              <div className="flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-md border border-gray-300">
                 <Trophy className="text-yellow-500" size={16} />
-                <span className="text-sm font-medium">20+ Project Selesai</span>
+                <span className="text-sm font-medium text-gray-700">20+ Project Selesai</span>
               </div>
-              <div className="flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-md border">
+              <div className="flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-md border border-gray-300">
                 <Users className="text-blue-500" size={16} />
-                <span className="text-sm font-medium">100% Client Satisfaction</span>
+                <span className="text-sm font-medium text-gray-700">100% Client Satisfaction</span>
               </div>
-              <div className="flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-md border">
+              <div className="flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-md border border-gray-300">
                 <Star className="text-orange-500" size={16} />
-                <span className="text-sm font-medium">Award Winner</span>
+                <span className="text-sm font-medium text-gray-700">Award Winner</span>
               </div>
             </div>
           </div>
@@ -262,14 +263,14 @@ const Projects: React.FC = () => {
 
           {/* Bottom CTA */}
           <div className="text-center mt-16">
-            <div className="inline-flex flex-col items-center gap-4 p-8 bg-gradient-to-r from-orange-50 to-purple-50 rounded-2xl border border-orange-100">
-              <h3 className="text-2xl font-bold gradient-text">
+            <div className="inline-flex flex-col items-center gap-4 p-8 bg-gray-100 rounded-2xl border border-gray-300">
+              <h3 className="text-2xl font-bold text-gray-800">
                 Tertarik dengan project serupa?
               </h3>
               <p className="text-gray-600 max-w-md">
                 Mari diskusikan bagaimana saya dapat membantu mewujudkan project impian Anda dengan hasil yang terukur dan berkualitas tinggi.
               </p>
-              <button className="px-8 py-3 bg-gradient-to-r from-orange-500 to-purple-600 text-white font-bold rounded-xl hover:from-orange-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-lg">
+              <button className="px-8 py-3 bg-gray-800 text-white font-bold rounded-xl hover:bg-gray-900 transition-all duration-300 transform hover:scale-105 shadow-lg">
                 Konsultasi Gratis
               </button>
             </div>
