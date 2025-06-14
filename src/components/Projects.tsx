@@ -1,0 +1,166 @@
+
+import React, { useState, useEffect } from 'react';
+import { ArrowRight, Github, ExternalLink } from 'lucide-react';
+import SkeletonCard from './SkeletonCard';
+
+interface Project {
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+  technologies: string[];
+  githubUrl: string;
+  liveUrl: string;
+}
+
+const Projects: React.FC = () => {
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  const mockProjects: Project[] = [
+    {
+      id: 1,
+      title: "E-Commerce Platform",
+      description: "A full-stack e-commerce solution with React, Node.js, and MongoDB. Features include user authentication, payment integration, and admin dashboard.",
+      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=300&fit=crop",
+      technologies: ["React", "Node.js", "MongoDB", "Stripe"],
+      githubUrl: "https://github.com",
+      liveUrl: "https://demo.com"
+    },
+    {
+      id: 2,
+      title: "Task Management App",
+      description: "A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.",
+      image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=300&fit=crop",
+      technologies: ["React", "TypeScript", "Firebase", "Material-UI"],
+      githubUrl: "https://github.com",
+      liveUrl: "https://demo.com"
+    },
+    {
+      id: 3,
+      title: "Weather Dashboard",
+      description: "A beautiful weather dashboard with location-based forecasts, interactive maps, and detailed weather analytics.",
+      image: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=400&h=300&fit=crop",
+      technologies: ["Vue.js", "API Integration", "Chart.js", "Tailwind"],
+      githubUrl: "https://github.com",
+      liveUrl: "https://demo.com"
+    },
+    {
+      id: 4,
+      title: "Social Media Analytics",
+      description: "An analytics platform for social media managers with comprehensive reporting and data visualization capabilities.",
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop",
+      technologies: ["React", "Python", "D3.js", "PostgreSQL"],
+      githubUrl: "https://github.com",
+      liveUrl: "https://demo.com"
+    },
+    {
+      id: 5,
+      title: "Portfolio Website",
+      description: "A modern, responsive portfolio website with smooth animations and interactive elements built with React and Tailwind CSS.",
+      image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=400&h=300&fit=crop",
+      technologies: ["React", "Tailwind CSS", "Framer Motion", "Vercel"],
+      githubUrl: "https://github.com",
+      liveUrl: "https://demo.com"
+    },
+    {
+      id: 6,
+      title: "AI Chat Assistant",
+      description: "An intelligent chat assistant powered by AI with natural language processing and context-aware responses.",
+      image: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=400&h=300&fit=crop",
+      technologies: ["React", "OpenAI API", "Node.js", "WebSocket"],
+      githubUrl: "https://github.com",
+      liveUrl: "https://demo.com"
+    }
+  ];
+
+  useEffect(() => {
+    // Simulate API call
+    const timer = setTimeout(() => {
+      setProjects(mockProjects);
+      setLoading(false);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  return (
+    <section id="projects" className="py-20 relative">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 gradient-text animate-fade-in-up">
+            Featured Projects
+          </h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-neon-blue to-neon-purple mx-auto animate-scale-in"></div>
+          <p className="text-white/70 mt-4 max-w-2xl mx-auto">
+            Here are some of my recent projects that showcase my skills and expertise in web development.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {loading ? (
+            Array.from({ length: 6 }).map((_, index) => (
+              <SkeletonCard key={index} />
+            ))
+          ) : (
+            projects.map((project, index) => (
+              <div
+                key={project.id}
+                className="group glass-effect-dark rounded-xl overflow-hidden hover-lift animate-fade-in-up"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className="relative overflow-hidden">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <a
+                      href={project.githubUrl}
+                      className="p-2 glass-effect rounded-full text-white hover:text-neon-blue transition-colors duration-300"
+                    >
+                      <Github size={18} />
+                    </a>
+                    <a
+                      href={project.liveUrl}
+                      className="p-2 glass-effect rounded-full text-white hover:text-neon-blue transition-colors duration-300"
+                    >
+                      <ExternalLink size={18} />
+                    </a>
+                  </div>
+                </div>
+                
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-neon-blue transition-colors duration-300">
+                    {project.title}
+                  </h3>
+                  <p className="text-white/70 text-sm mb-4 leading-relaxed">
+                    {project.description}
+                  </p>
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.technologies.map((tech, techIndex) => (
+                      <span
+                        key={techIndex}
+                        className="px-3 py-1 text-xs bg-gradient-to-r from-neon-blue/20 to-neon-purple/20 text-neon-blue rounded-full border border-neon-blue/30"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                  <button className="flex items-center gap-2 text-neon-blue font-medium hover:text-neon-purple transition-colors duration-300 group">
+                    <span>View Project</span>
+                    <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-300" />
+                  </button>
+                </div>
+              </div>
+            ))
+          )}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Projects;
