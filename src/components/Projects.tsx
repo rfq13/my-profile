@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowRight, Github, ExternalLink, Calendar, Users, Trophy, Star, Wrench, Server, Figma, Docker, Zap, Cloud, ClipboardSignature, PlayCircle, FileCode2 } from 'lucide-react';
+import { ArrowRight, Github, ExternalLink, Calendar, Users, Trophy, Star, Wrench, Server, Figma, Dock, Zap, Cloud, ClipboardSignature, PlayCircle, FileCode2 } from 'lucide-react';
 import SkeletonCard from './SkeletonCard';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
@@ -49,7 +49,7 @@ const Projects: React.FC = () => {
       tools: [
         {
           toolName: "Docker",
-          icon: <Docker size={16} className="text-sky-500" />,
+          icon: <Dock size={16} className="text-sky-500" />,
           docUrl: "https://docs.docker.com/",
           description: "Otomasi deployment, environment isolasi, CI/CD ready"
         },
