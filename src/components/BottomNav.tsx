@@ -45,7 +45,7 @@ const BottomNav: React.FC = () => {
   };
 
   return (
-    <nav className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-t border-gray-200">
+    <nav className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-t border-gray-200 dark:border-gray-700 transition-colors duration-300">
       <div className="flex justify-around items-center py-2">
         {navItems.map((item) => {
           const IconComponent = item.icon;
@@ -55,11 +55,11 @@ const BottomNav: React.FC = () => {
               key={item.name}
               onClick={() => handleNavClick(item.href)}
               className={`flex flex-col items-center justify-center p-3 transition-all duration-300 group ${
-                isActive ? 'text-gray-900' : 'text-gray-500 hover:text-gray-900'
+                isActive ? 'text-gray-900 dark:text-white' : 'text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
               }`}
             >
               <div className={`p-2 rounded-lg transition-all duration-300 ${
-                isActive ? 'bg-gray-200' : 'group-hover:bg-gray-200/60'
+                isActive ? 'bg-gray-200 dark:bg-gray-700' : 'group-hover:bg-gray-200/60 dark:group-hover:bg-gray-700/60'
               }`}>
                 <IconComponent size={20} className={`transition-transform duration-300 ${
                   isActive ? 'scale-110' : 'group-hover:scale-110'

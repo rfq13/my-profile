@@ -4,14 +4,14 @@ import { useScrollZoom } from '../hooks/useScrollZoom';
 import { Badge } from './ui/badge';
 
 const badgeColors = [
-  'bg-blue-100 text-blue-700 border-blue-200',
-  'bg-purple-100 text-purple-700 border-purple-200',
-  'bg-pink-100 text-pink-700 border-pink-200',
-  'bg-yellow-100 text-yellow-700 border-yellow-200',
-  'bg-green-100 text-green-700 border-green-200',
-  'bg-orange-100 text-orange-700 border-orange-200',
-  'bg-cyan-100 text-cyan-700 border-cyan-200',
-  'bg-red-100 text-red-700 border-red-200'
+  'bg-blue-100 text-blue-700 border-blue-200 dark:bg-blue-900 dark:text-blue-300 dark:border-blue-700',
+  'bg-purple-100 text-purple-700 border-purple-200 dark:bg-purple-900 dark:text-purple-300 dark:border-purple-700',
+  'bg-pink-100 text-pink-700 border-pink-200 dark:bg-pink-900 dark:text-pink-300 dark:border-pink-700',
+  'bg-yellow-100 text-yellow-700 border-yellow-200 dark:bg-yellow-900 dark:text-yellow-300 dark:border-yellow-700',
+  'bg-green-100 text-green-700 border-green-200 dark:bg-green-900 dark:text-green-300 dark:border-green-700',
+  'bg-orange-100 text-orange-700 border-orange-200 dark:bg-orange-900 dark:text-orange-300 dark:border-orange-700',
+  'bg-cyan-100 text-cyan-700 border-cyan-200 dark:bg-cyan-900 dark:text-cyan-300 dark:border-cyan-700',
+  'bg-red-100 text-red-700 border-red-200 dark:bg-red-900 dark:text-red-300 dark:border-red-700'
 ];
 
 const Skills: React.FC = () => {
@@ -27,16 +27,16 @@ const Skills: React.FC = () => {
   const duplicatedSkills = [...skills, ...skills];
 
   return (
-    <section id="skills" className="py-20 bg-white/50">
+    <section id="skills" className="py-20 bg-white/50 dark:bg-gray-900/50 transition-colors duration-300">
       <div className="container mx-auto px-4">
         <div 
           className="text-center mb-12 transition-transform duration-300 ease-out"
           style={{ transform: `translateY(${scrollY * 0.02}px)` }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4 transition-colors duration-300">
             My Tech Stack
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto transition-colors duration-300">
             I work with a variety of modern technologies to build high-quality web applications.
           </p>
         </div>
@@ -51,7 +51,7 @@ const Skills: React.FC = () => {
                 key={`top-${index}`}
                 className={`
                   mx-2 px-6 py-3 border 
-                  shadow transition-transform duration-200 
+                  shadow transition-all duration-300 
                   hover:scale-110 hover:brightness-105 hover:shadow-lg
                   font-semibold text-base
                   ${badgeColors[index % badgeColors.length]}
@@ -67,7 +67,7 @@ const Skills: React.FC = () => {
                 key={`bottom-${index}`}
                 className={`
                   mx-2 px-6 py-3 border 
-                  shadow transition-transform duration-200 
+                  shadow transition-all duration-300 
                   hover:scale-110 hover:brightness-105 hover:shadow-lg
                   font-semibold text-base
                   ${badgeColors[(index + 3) % badgeColors.length]}
@@ -84,4 +84,3 @@ const Skills: React.FC = () => {
 };
 
 export default Skills;
-
