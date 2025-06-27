@@ -38,6 +38,10 @@
     --neutral-700: 0 0% 25%;
     --neutral-800: 0 0% 15%;
     --neutral-900: 0 0% 9%;
+    
+    /* Mouse position variables */
+    --mouse-x: 0px;
+    --mouse-y: 0px;
   }
 
   .dark {
@@ -68,26 +72,58 @@
     @apply border-border;
   }
 
+  html {
+    cursor: none; /* Hide default cursor globally */
+  }
+
   body {
     @apply bg-neutral-50 text-neutral-900 dark:bg-neutral-900 dark:text-neutral-50;
     transition: background-color 0.3s ease, color 0.3s ease;
-    cursor: none; /* Hide default cursor for custom mouse effects */
+    cursor: none; /* Ensure cursor is hidden on body */
+    overflow-x: hidden;
   }
 
-  /* Custom cursor */
+  /* Custom cursor that follows mouse everywhere */
+  body::before {
+    content: '';
+    position: fixed;
+    top: var(--mouse-y, 0px);
+    left: var(--mouse-x, 0px);
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.8) 0%, rgba(59, 130, 246, 0.4) 40%, rgba(59, 130, 246, 0.1) 70%, transparent 100%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 99999; /* Highest z-index to ensure visibility */
+    transform: translate(-50%, -50%);
+    transition: none; /* Remove transition for smoother tracking */
+    mix-blend-mode: screen; /* Ensures visibility on all backgrounds */
+  }
+
+  /* Enhanced cursor for interactive elements */
   body::after {
     content: '';
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 20px;
-    height: 20px;
-    background: radial-gradient(circle, rgba(59, 130, 246, 0.8) 0%, rgba(59, 130, 246, 0.2) 50%, transparent 70%);
+    top: var(--mouse-y, 0px);
+    left: var(--mouse-x, 0px);
+    width: 40px;
+    height: 40px;
+    border: 2px solid rgba(59, 130, 246, 0.3);
     border-radius: 50%;
     pointer-events: none;
-    z-index: 9999;
-    transform: translate(-50%, -50%);
-    transition: transform 0.1s ease-out;
+    z-index: 99998;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.2s ease;
+  }
+
+  /* Show enhanced cursor on hover */
+  button:hover ~ body::after,
+  a:hover ~ body::after,
+  input:hover ~ body::after,
+  textarea:hover ~ body::after,
+  select:hover ~ body::after,
+  [role="button"]:hover ~ body::after {
+    transform: translate(-50%, -50%) scale(1);
   }
 
   /* Glass effect components */
@@ -161,13 +197,26 @@
   .stagger-5 { animation-delay: 0.5s; }
   .stagger-6 { animation-delay: 0.6s; }
 
-  /* Interactive elements cursor */
-  button, a, input, textarea, select {
-    cursor: pointer;
+  /* Ensure all interactive elements hide default cursor */
+  button, a, input, textarea, select, [role="button"], [tabindex] {
+    cursor: none !important;
   }
 
-  button:hover, a:hover {
-    cursor: pointer;
+  /* Special cursor states */
+  .cursor-pointer {
+    cursor: none !important;
+  }
+
+  .cursor-text {
+    cursor: none !important;
+  }
+
+  .cursor-grab {
+    cursor: none !important;
+  }
+
+  .cursor-grabbing {
+    cursor: none !important;
   }
 }
 
@@ -274,19 +323,29 @@
   background: hsl(var(--neutral-500));
 }
 
-/* Custom cursor tracking */
-@media (pointer: fine) {
-  body {
-    cursor: none;
+/* Mobile devices - show default cursor */
+@media (pointer: coarse) {
+  html, body {
+    cursor: auto !important;
+  }
+  
+  body::before,
+  body::after {
+    display: none !important;
+  }
+  
+  button, a, input, textarea, select, [role="button"], [tabindex] {
+    cursor: auto !important;
   }
 }
 
-@media (pointer: coarse) {
-  body {
-    cursor: auto;
+/* Desktop devices - custom cursor */
+@media (pointer: fine) {
+  html, body {
+    cursor: none !important;
   }
   
-  body::after {
-    display: none;
+  * {
+    cursor: none !important;
   }
 }
