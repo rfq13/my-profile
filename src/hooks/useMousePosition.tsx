@@ -22,8 +22,28 @@ export const useMousePosition = () => {
       });
     };
 
-    // Add event listener with passive option for better performance
+    const handleMouseEnter = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      
+      // Check if hovering over interactive element
+      if (target.matches('button, a, input, textarea, select, [role="button"], [tabindex]')) {
+        document.body.classList.add('cursor-hover');
+      }
+    };
+
+    const handleMouseLeave = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      
+      // Remove hover state when leaving interactive element
+      if (target.matches('button, a, input, textarea, select, [role="button"], [tabindex]')) {
+        document.body.classList.remove('cursor-hover');
+      }
+    };
+
+    // Add event listeners with passive option for better performance
     document.addEventListener('mousemove', updateMousePosition, { passive: true });
+    document.addEventListener('mouseenter', handleMouseEnter, { passive: true, capture: true });
+    document.addEventListener('mouseleave', handleMouseLeave, { passive: true, capture: true });
 
     // Initialize cursor position
     const initializeCursor = () => {
@@ -35,6 +55,8 @@ export const useMousePosition = () => {
 
     return () => {
       document.removeEventListener('mousemove', updateMousePosition);
+      document.removeEventListener('mouseenter', handleMouseEnter, true);
+      document.removeEventListener('mouseleave', handleMouseLeave, true);
       if (animationFrameId) {
         cancelAnimationFrame(animationFrameId);
       }
