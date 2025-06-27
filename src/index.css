@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -44,10 +43,9 @@
     --mouse-x: 0px;
     --mouse-y: 0px;
     
-    /* Cursor colors for light mode */
+    /* Cursor colors for light mode - more subtle */
     --cursor-primary: 59, 130, 246;
     --cursor-secondary: 37, 99, 235;
-    --cursor-glow: 147, 197, 253;
   }
 
   .dark {
@@ -71,10 +69,9 @@
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
     
-    /* Cursor colors for dark mode */
+    /* Cursor colors for dark mode - more subtle */
     --cursor-primary: 96, 165, 250;
     --cursor-secondary: 59, 130, 246;
-    --cursor-glow: 191, 219, 254;
   }
 }
 
@@ -94,73 +91,44 @@
     overflow-x: hidden;
   }
 
-  /* Primary custom cursor - enhanced for light mode visibility */
+  /* Simple, small custom cursor dot */
   body::before {
     content: '';
     position: fixed;
     top: var(--mouse-y, 0px);
     left: var(--mouse-x, 0px);
-    width: 24px;
-    height: 24px;
-    background: radial-gradient(
-      circle,
-      rgba(var(--cursor-primary), 0.9) 0%,
-      rgba(var(--cursor-primary), 0.7) 30%,
-      rgba(var(--cursor-primary), 0.4) 60%,
-      rgba(var(--cursor-glow), 0.2) 80%,
-      transparent 100%
-    );
-    border: 2px solid rgba(var(--cursor-primary), 0.8);
+    width: 8px;
+    height: 8px;
+    background: rgba(var(--cursor-primary), 0.9);
     border-radius: 50%;
     pointer-events: none;
     z-index: 99999;
     transform: translate(-50%, -50%);
     transition: none;
-    box-shadow: 
-      0 0 10px rgba(var(--cursor-primary), 0.6),
-      0 0 20px rgba(var(--cursor-primary), 0.3),
-      inset 0 0 10px rgba(var(--cursor-primary), 0.2);
+    box-shadow: 0 0 8px rgba(var(--cursor-primary), 0.3);
   }
 
-  /* Enhanced cursor ring for interactive elements */
+  /* Subtle cursor ring for interactive elements */
   body::after {
     content: '';
     position: fixed;
     top: var(--mouse-y, 0px);
     left: var(--mouse-x, 0px);
-    width: 48px;
-    height: 48px;
-    border: 3px solid rgba(var(--cursor-secondary), 0.6);
+    width: 32px;
+    height: 32px;
+    border: 1px solid rgba(var(--cursor-secondary), 0.4);
     border-radius: 50%;
     pointer-events: none;
     z-index: 99998;
     transform: translate(-50%, -50%) scale(0);
-    transition: transform 0.2s ease, border-color 0.2s ease;
-    box-shadow: 
-      0 0 15px rgba(var(--cursor-secondary), 0.4),
-      inset 0 0 15px rgba(var(--cursor-secondary), 0.1);
+    transition: transform 0.15s ease, opacity 0.15s ease;
+    opacity: 0;
   }
 
   /* Show enhanced cursor on hover - improved selector */
-  *:hover {
-    --show-enhanced-cursor: 1;
-  }
-
-  button:hover ~ body::after,
-  a:hover ~ body::after,
-  input:hover ~ body::after,
-  textarea:hover ~ body::after,
-  select:hover ~ body::after,
-  [role="button"]:hover ~ body::after,
-  [tabindex]:hover ~ body::after {
-    transform: translate(-50%, -50%) scale(1);
-    border-color: rgba(var(--cursor-secondary), 0.8);
-  }
-
-  /* Alternative method using CSS custom property */
   body:has(*:hover)::after {
     transform: translate(-50%, -50%) scale(1);
-    border-color: rgba(var(--cursor-secondary), 0.8);
+    opacity: 1;
   }
 
   /* Glass effect components */
@@ -412,7 +380,7 @@
   }
 }
 
-/* Desktop devices - custom cursor with enhanced visibility */
+/* Desktop devices - simple custom cursor */
 @media (pointer: fine) {
   html, body {
     cursor: none !important;
@@ -420,14 +388,5 @@
   
   * {
     cursor: none !important;
-  }
-  
-  /* Enhanced cursor for light mode */
-  @media (prefers-color-scheme: light) {
-    :root:not(.dark) {
-      --cursor-primary: 29, 78, 216;
-      --cursor-secondary: 37, 99, 235;
-      --cursor-glow: 59, 130, 246;
-    }
   }
 }
