@@ -71,6 +71,23 @@
   body {
     @apply bg-neutral-50 text-neutral-900 dark:bg-neutral-900 dark:text-neutral-50;
     transition: background-color 0.3s ease, color 0.3s ease;
+    cursor: none; /* Hide default cursor for custom mouse effects */
+  }
+
+  /* Custom cursor */
+  body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.8) 0%, rgba(59, 130, 246, 0.2) 50%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease-out;
   }
 
   /* Glass effect components */
@@ -143,6 +160,15 @@
   .stagger-4 { animation-delay: 0.4s; }
   .stagger-5 { animation-delay: 0.5s; }
   .stagger-6 { animation-delay: 0.6s; }
+
+  /* Interactive elements cursor */
+  button, a, input, textarea, select {
+    cursor: pointer;
+  }
+
+  button:hover, a:hover {
+    cursor: pointer;
+  }
 }
 
 @keyframes fadeIn {
@@ -246,4 +272,21 @@
 
 .dark ::-webkit-scrollbar-thumb:hover {
   background: hsl(var(--neutral-500));
+}
+
+/* Custom cursor tracking */
+@media (pointer: fine) {
+  body {
+    cursor: none;
+  }
+}
+
+@media (pointer: coarse) {
+  body {
+    cursor: auto;
+  }
+  
+  body::after {
+    display: none;
+  }
 }
