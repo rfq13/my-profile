@@ -25,8 +25,8 @@ export const useMousePosition = () => {
     const handleMouseEnter = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       
-      // Check if hovering over interactive element
-      if (target.matches('button, a, input, textarea, select, [role="button"], [tabindex]')) {
+      // Check if target is an Element and has the matches method before calling it
+      if (target && typeof target.matches === 'function' && target.matches('button, a, input, textarea, select, [role="button"], [tabindex]')) {
         document.body.classList.add('cursor-hover');
       }
     };
@@ -34,8 +34,8 @@ export const useMousePosition = () => {
     const handleMouseLeave = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       
-      // Remove hover state when leaving interactive element
-      if (target.matches('button, a, input, textarea, select, [role="button"], [tabindex]')) {
+      // Check if target is an Element and has the matches method before calling it
+      if (target && typeof target.matches === 'function' && target.matches('button, a, input, textarea, select, [role="button"], [tabindex]')) {
         document.body.classList.remove('cursor-hover');
       }
     };
