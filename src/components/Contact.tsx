@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Send, CheckCircle } from "lucide-react";
 import { Input } from "@/components/ui/input";
@@ -36,14 +35,13 @@ const Contact: React.FC = () => {
   return (
     <section
       id="contact"
-      className="py-20 flex items-center justify-center bg-white/0 dark:bg-gray-900/0 transition-colors duration-300"
+      className="py-20 flex items-center justify-center bg-neutral-50 dark:bg-neutral-900 transition-colors duration-300"
     >
-      {/* Card utama dengan white glass effect, border dan shadow mirip Hero img */}
-      <div className="w-full max-w-md mx-auto rounded-2xl border-2 border-blue-400/40 dark:border-blue-500/40 shadow-xl bg-white/70 dark:bg-gray-800/70 backdrop-blur-md px-6 py-10 animate-fade-in-up transition-colors duration-300">
-        <h2 className="text-3xl font-bold text-center mb-2 bg-gradient-to-r from-blue-500 via-purple-500 to-purple-400 bg-clip-text text-transparent drop-shadow">
+      <div className="w-full max-w-md mx-auto rounded-2xl border border-neutral-200 dark:border-neutral-700 shadow-xl glass-card-light px-6 py-10 animate-fade-in">
+        <h2 className="text-3xl font-bold text-center mb-2 gradient-text">
           Get In Touch
         </h2>
-        <p className="text-gray-700/90 dark:text-gray-300/90 text-center mb-7 text-base font-medium transition-colors duration-300">
+        <p className="text-neutral-600 dark:text-neutral-400 text-center mb-7 text-base font-medium">
           Kirim pesan singkat & emailmu.<br />Aku akan balas dalam waktu singkat!
         </p>
         <form className="space-y-4" onSubmit={handleSubmit}>
@@ -56,7 +54,7 @@ const Contact: React.FC = () => {
             onChange={handleChange}
             disabled={isSubmitting}
             required
-            className="bg-white/80 dark:bg-gray-700/80 border-2 border-blue-200/60 dark:border-blue-600/60 placeholder:text-blue-400/60 dark:placeholder:text-blue-400/60 text-gray-800 dark:text-white font-semibold focus:border-blue-400 dark:focus:border-blue-500 focus:ring-2 focus:ring-blue-200 dark:focus:ring-blue-800 shadow-none transition-colors duration-300"
+            className="bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 placeholder:text-neutral-400 text-neutral-900 dark:text-neutral-50 font-semibold focus:border-blue-500 focus:ring-2 focus:ring-blue-200 dark:focus:ring-blue-800 shadow-none transition-colors duration-300"
           />
           <Textarea
             name="message"
@@ -67,11 +65,11 @@ const Contact: React.FC = () => {
             required
             rows={4}
             disabled={isSubmitting}
-            className="bg-white/80 dark:bg-gray-700/80 border-2 border-purple-200/60 dark:border-purple-600/60 placeholder:text-purple-400/50 dark:placeholder:text-purple-400/50 text-gray-800 dark:text-white font-semibold focus:border-purple-400 dark:focus:border-purple-500 focus:ring-2 focus:ring-purple-200 dark:focus:ring-purple-800 shadow-none resize-none transition-colors duration-300"
+            className="bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 placeholder:text-neutral-400 text-neutral-900 dark:text-neutral-50 font-semibold focus:border-blue-500 focus:ring-2 focus:ring-blue-200 dark:focus:ring-blue-800 shadow-none resize-none transition-colors duration-300"
           />
           <Button
             type="submit"
-            className="w-full mt-2 flex items-center justify-center gap-2 bg-gradient-to-r from-blue-500 via-blue-400 to-purple-500 font-bold py-3 rounded-xl text-lg text-white hover:scale-105 hover:shadow-xl transition-all duration-300"
+            className="w-full mt-2 flex items-center justify-center gap-2 gradient-primary font-bold py-3 rounded-xl text-lg text-white hover:scale-105 hover:shadow-xl transition-all duration-300"
             disabled={isSubmitting}
           >
             {isSubmitting && (
@@ -91,7 +89,7 @@ const Contact: React.FC = () => {
             )}
           </Button>
         </form>
-        <div className="mt-7 text-xs text-center text-blue-400/70 dark:text-blue-400/70 font-medium">
+        <div className="mt-7 text-xs text-center text-neutral-500 dark:text-neutral-400 font-medium">
           Kamu tidak akan menerima spam. <br /> Chat dibalas dalam 1x24 jam.
         </div>
       </div>

@@ -1,9 +1,7 @@
 import React from 'react';
 import { Code, Palette, Rocket, Heart } from 'lucide-react';
-import { useScrollZoom } from '../hooks/useScrollZoom';
 
 const About: React.FC = () => {
-  const { scrollY } = useScrollZoom();
   const features = [
     {
       icon: <Code className="w-8 h-8" />,
@@ -28,36 +26,32 @@ const About: React.FC = () => {
   ];
 
   return (
-    <section id="about" className="section-container relative overflow-hidden">
-      {/* Background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 right-1/4 w-72 h-72 bg-gradient-to-r from-cyan-400/10 to-blue-400/10 rounded-full blur-3xl floating-element"></div>
-        <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-purple-400/10 to-pink-400/10 rounded-full blur-3xl floating-element"></div>
+    <section id="about" className="py-20 bg-neutral-50 dark:bg-neutral-900 transition-colors duration-300">
+      {/* Background decoration */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/4 right-1/4 w-72 h-72 bg-blue-500/5 rounded-full blur-3xl animate-float"></div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-16 fade-in-section">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 gradient-text text-shadow">
+        <div className="text-center mb-16 animate-fade-in">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-neutral-900 dark:text-neutral-50">
             About Me
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-purple-400 mx-auto rounded-full"></div>
+          <div className="w-24 h-1 gradient-primary mx-auto rounded-full"></div>
         </div>
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div 
-            className="slide-in-left-section"
-            style={{ transform: `translateX(${Math.max(-20, -scrollY * 0.05)}px)` }}
-          >
-            <div className="glass-card p-8 rounded-3xl glow-effect">
-              <h3 className="text-2xl font-bold text-white mb-6 gradient-text-alt">
+          <div className="animate-slide-in-left">
+            <div className="glass-card-light p-8 rounded-3xl border border-neutral-200 dark:border-neutral-700">
+              <h3 className="text-2xl font-bold text-neutral-900 dark:text-neutral-50 mb-6 gradient-text">
                 Full Stack Developer with 5+ years of experience
               </h3>
-              <p className="text-white/90 leading-relaxed mb-6">
+              <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed mb-6">
                 I'm passionate about creating digital experiences that are not only beautiful but also functional. 
                 My journey in web development started with a curiosity about how websites work, and it has evolved 
                 into a career where I get to solve complex problems and build amazing applications.
               </p>
-              <p className="text-white/90 leading-relaxed mb-6">
+              <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed mb-6">
                 I specialize in React, Node.js, and modern web technologies. I believe in writing clean, 
                 maintainable code and creating user experiences that delight and engage users.
               </p>
@@ -65,8 +59,7 @@ const About: React.FC = () => {
                 {["React", "TypeScript", "Node.js", "MongoDB"].map((tech, index) => (
                   <span 
                     key={tech}
-                    className="px-4 py-2 glass-card rounded-full text-sm text-white/90 border border-white/20 hover:scale-105 transition-transform duration-300"
-                    style={{ animationDelay: `${index * 0.1}s` }}
+                    className={`px-4 py-2 glass-card-light rounded-full text-sm text-neutral-700 dark:text-neutral-300 border border-neutral-200 dark:border-neutral-700 hover:scale-105 transition-transform duration-300 animate-fade-in stagger-${index + 1}`}
                   >
                     {tech}
                   </span>
@@ -75,23 +68,20 @@ const About: React.FC = () => {
             </div>
           </div>
 
-          <div className="slide-in-right-section">
+          <div className="animate-slide-in-right">
             <div className="grid grid-cols-2 gap-6">
               {features.map((feature, index) => (
                 <div
                   key={index}
-                  className="glass-card p-6 text-center hover-lift group cursor-pointer rounded-2xl glow-effect"
-                  style={{ 
-                    animationDelay: `${index * 0.1}s`,
-                  }}
+                  className={`glass-card-light p-6 text-center hover-lift group cursor-pointer rounded-2xl border border-neutral-200 dark:border-neutral-700 animate-fade-in stagger-${index + 1}`}
                 >
-                  <div className="text-gradient-to-r from-blue-400 to-purple-400 mb-4 group-hover:scale-110 transition-transform duration-300 flex justify-center">
-                    <div className="p-3 glass-card-strong rounded-xl">
+                  <div className="text-blue-600 mb-4 group-hover:scale-110 transition-transform duration-300 flex justify-center">
+                    <div className="p-3 glass-card-light rounded-xl border border-neutral-200 dark:border-neutral-700">
                       {feature.icon}
                     </div>
                   </div>
-                  <h4 className="text-white font-semibold mb-2">{feature.title}</h4>
-                  <p className="text-white/80 text-sm">{feature.description}</p>
+                  <h4 className="text-neutral-900 dark:text-neutral-50 font-semibold mb-2">{feature.title}</h4>
+                  <p className="text-neutral-600 dark:text-neutral-400 text-sm">{feature.description}</p>
                 </div>
               ))}
             </div>

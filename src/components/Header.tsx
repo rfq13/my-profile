@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import DarkModeToggle from './DarkModeToggle';
 
@@ -24,11 +23,11 @@ const Header: React.FC = () => {
 
   return (
     <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-md py-4' : 'py-6'
+      isScrolled ? 'glass-card-light backdrop-blur-xl shadow-lg py-4 border-b border-neutral-200 dark:border-neutral-700' : 'py-6'
     }`}>
       <div className="container mx-auto px-4">
         <nav className="flex items-center justify-between">
-          <div className="text-2xl font-bold text-gray-800 dark:text-white transition-colors duration-300">
+          <div className="text-2xl font-bold text-neutral-900 dark:text-neutral-50 transition-colors duration-300">
             Portfolio
           </div>
           
@@ -37,10 +36,10 @@ const Header: React.FC = () => {
               <a
                 key={item.name}
                 href={item.href}
-                className={`text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-all duration-300 relative group font-medium`}
+                className={`text-neutral-600 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-neutral-50 transition-all duration-300 relative group font-medium`}
               >
                 {item.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gray-800 dark:bg-white transition-all duration-300 group-hover:w-full"></span>
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
               </a>
             ))}
           </div>
