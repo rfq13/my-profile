@@ -151,16 +151,16 @@ const Projects: React.FC = () => {
             </div>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
             {loading ? (
               Array.from({ length: 6 }).map((_, index) => (
-                <div key={index} className={`animate-fade-in stagger-${(index % 6) + 1}`}>
+                <div key={index} className={`animate-fade-in stagger-${(index % 6) + 1} h-full`}>
                   <SkeletonCard />
                 </div>
               ))
             ) : (
               projects.map((project, index) => (
-                <div key={project.id} className={`animate-fade-in stagger-${(index % 6) + 1}`}>
+                <div key={project.id} className={`animate-fade-in stagger-${(index % 6) + 1} h-full flex`}>
                   <ProjectCard
                     project={project}
                     index={index}

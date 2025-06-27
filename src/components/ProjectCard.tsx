@@ -1,3 +1,4 @@
+
 import React from "react";
 import { ArrowRight, Github, ExternalLink, Calendar, Users } from "lucide-react";
 import ProjectToolsBadges from "./ProjectToolsBadges";
@@ -33,16 +34,16 @@ interface ProjectCardProps {
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project, index, getStatusBadge }) => (
-  <div className="group relative glass-card-light rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-700 hover:shadow-xl transition-all duration-500 hover:-translate-y-2">
+  <div className="group relative glass-card-light rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-700 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 flex flex-col h-full w-full">
     {/* Status Badge */}
     <div className="absolute top-4 left-4 z-10">{getStatusBadge(project.status)}</div>
     
-    {/* Image Container */}
-    <div className="relative overflow-hidden">
+    {/* Image Container - Fixed height */}
+    <div className="relative overflow-hidden h-56 flex-shrink-0">
       <img
         src={project.image}
         alt={project.title}
-        className="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-110"
+        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
       
@@ -72,12 +73,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index, getStatusBadg
       </div>
     </div>
     
-    {/* Content */}
-    <div className="p-6">
+    {/* Content - Flexible height */}
+    <div className="p-6 flex flex-col flex-grow">
       <h3 className="text-xl font-bold text-neutral-900 dark:text-neutral-50 mb-3 group-hover:text-blue-600 transition-colors duration-300">
         {project.title}
       </h3>
-      <p className="text-neutral-600 dark:text-neutral-400 text-sm mb-4 leading-relaxed">{project.description}</p>
+      <p className="text-neutral-600 dark:text-neutral-400 text-sm mb-4 leading-relaxed line-clamp-3">
+        {project.description}
+      </p>
       
       {/* Project Stats */}
       <div className="flex items-center gap-4 mb-4 text-xs text-neutral-500 dark:text-neutral-400">
@@ -92,16 +95,20 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index, getStatusBadg
       </div>
       
       {/* Tools Badge */}
-      {project.tools && <ProjectToolsBadges tools={project.tools} />}
+      {project.tools && (
+        <div className="mb-4">
+          <ProjectToolsBadges tools={project.tools} />
+        </div>
+      )}
       
       {/* Key Achievements */}
-      <div className="mb-4">
+      <div className="mb-4 flex-grow">
         <h4 className="text-xs font-semibold text-neutral-700 dark:text-neutral-300 mb-2">Key Results:</h4>
         <div className="space-y-1">
           {project.achievements.slice(0, 2).map((achievement, idx) => (
             <div key={idx} className="flex items-center gap-2">
-              <div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>
-              <span className="text-xs text-neutral-600 dark:text-neutral-400">{achievement}</span>
+              <div className="w-1.5 h-1.5 bg-green-500 rounded-full flex-shrink-0"></div>
+              <span className="text-xs text-neutral-600 dark:text-neutral-400 line-clamp-1">{achievement}</span>
             </div>
           ))}
         </div>
@@ -124,11 +131,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index, getStatusBadg
         )}
       </div>
       
-      {/* CTA Button */}
-      <button className="w-full flex items-center justify-center gap-2 px-4 py-3 gradient-primary text-white font-semibold rounded-xl hover:scale-105 transition-all duration-300 group">
-        <span>View Case Study</span>
-        <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-300" />
-      </button>
+      {/* CTA Button - Always at bottom */}
+      <div className="mt-auto">
+        <button className="w-full flex items-center justify-center gap-2 px-4 py-3 gradient-primary text-white font-semibold rounded-xl hover:scale-105 transition-all duration-300 group">
+          <span>View Case Study</span>
+          <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-300" />
+        </button>
+      </div>
     </div>
   </div>
 );
