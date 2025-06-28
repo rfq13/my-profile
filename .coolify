@@ -1,0 +1,15 @@
+
+# Coolify Configuration
+# File ini akan dibaca otomatis oleh Coolify
+
+# Build settings
+BUILD_COMMAND="npm run build"
+OUTPUT_DIRECTORY="dist"
+NODE_VERSION="18"
+
+# Runtime settings
+PORT="3000"
+HEALTHCHECK_PATH="/"
+
+# Environment
+NODE_ENV="production"
