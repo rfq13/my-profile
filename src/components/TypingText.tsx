@@ -13,7 +13,7 @@ const TypingText: React.FC<TypingTextProps> = ({ texts, className }) => {
   return (
     <span className={className}>
       {typedText}
-      <span className="animate-pulse">|</span>
+      <span className="animate-pulse text-neutral-900 dark:text-neutral-50">|</span>
     </span>
   );
 };
