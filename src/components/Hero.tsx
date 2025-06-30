@@ -46,7 +46,7 @@ const Hero: React.FC = () => {
             </h1>
             
             <div className="mb-8 animate-fade-in stagger-3">
-              <div className="glass-card-light px-6 py-4 rounded-2xl inline-block min-h-[4rem] flex items-center">
+              <div className="glass-card-light px-6 py-4 rounded-2xl min-h-[4rem] flex items-center">
                 <span className="text-2xl md:text-3xl font-bold gradient-text">
                   <TypingText texts={["Full Stack Developer", "UI/UX Enthusiast", "Problem Solver"]} />
                 </span>
@@ -82,12 +82,12 @@ const Hero: React.FC = () => {
               <div className="absolute -inset-4 bg-blue-600/20 rounded-3xl blur-2xl animate-float"></div>
               <div className="relative glass-card-light rounded-3xl p-6 border border-neutral-200 dark:border-neutral-700">
                 <img
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&q=80"
-                  alt="John Doe"
-                  className="w-80 h-80 object-cover rounded-2xl"
+                  src="/profile.jpg"
+                  alt="M. Rifqy Fakhrul Hadi"
+                  className="w-80 h-80 object-cover object-top rounded-2xl shadow-2xl"
                 />
-                <div className="absolute bottom-6 left-6 glass-card-light px-4 py-2 rounded-xl text-neutral-900 dark:text-neutral-50 font-semibold border border-neutral-200/50 dark:border-neutral-700/50">
-                  <span className="gradient-text">John Doe</span>
+                <div className="absolute bottom-6 left-6 glass-card-light px-4 py-2 rounded-bl-xl rounded-tr-xl text-neutral-900 dark:text-neutral-50 font-semibold border border-neutral-200/50 dark:border-neutral-700/50">
+                  <span className="gradient-text">M. Rifqy Fakhrul Hadi</span>
                 </div>
               </div>
             </div>

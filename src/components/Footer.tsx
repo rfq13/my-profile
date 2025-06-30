@@ -5,32 +5,32 @@ const Footer: React.FC = () => {
   const socialLinks = [
     {
       icon: <Github className="w-5 h-5" />,
-      href: "https://github.com/johndoe",
+      href: import.meta.env.VITE_GITHUB_URL || "#",
       label: "GitHub"
     },
     {
       icon: <Linkedin className="w-5 h-5" />,
-      href: "https://linkedin.com/in/johndoe",
+      href: import.meta.env.VITE_LINKEDIN_URL || "#",
       label: "LinkedIn"  
     },
     {
       icon: <Twitter className="w-5 h-5" />,
-      href: "https://twitter.com/johndoe",
+      href: import.meta.env.VITE_TWITTER_URL || "#",
       label: "Twitter"
     },
     {
       icon: <Instagram className="w-5 h-5" />,
-      href: "https://instagram.com/johndoe", 
+      href: import.meta.env.VITE_INSTAGRAM_URL || "#", 
       label: "Instagram"
     },
     {
       icon: <Mail className="w-5 h-5" />,
-      href: "mailto:john@example.com",
+      href: import.meta.env.VITE_EMAIL ? `mailto:${import.meta.env.VITE_EMAIL}` : "mailto:",
       label: "Email"
     },
     {
       icon: <Phone className="w-5 h-5" />,
-      href: "tel:+15551234567",
+      href: import.meta.env.VITE_PHONE ? `tel:${import.meta.env.VITE_PHONE}` : "tel:",
       label: "Phone"
     }
   ];
@@ -59,10 +59,10 @@ const Footer: React.FC = () => {
           <p className="text-neutral-600 dark:text-neutral-400 flex items-center justify-center gap-2 transition-colors duration-300">
             Made with 
             <Heart className="w-4 h-4 text-red-500 animate-pulse" />
-            by John Doe
+            by {import.meta.env.VITE_FULL_NAME || "Developer"}
           </p>
           <p className="text-neutral-400 dark:text-neutral-500 text-sm mt-2 transition-colors duration-300">
-            © 2024 All rights reserved.
+            © {import.meta.env.VITE_COPYRIGHT_YEAR || new Date().getFullYear()} All rights reserved.
           </p>
         </div>
       </div>

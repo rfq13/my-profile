@@ -28,7 +28,7 @@ const Header: React.FC = () => {
       <div className="container mx-auto px-4">
         <nav className="flex items-center justify-between">
           <div className="text-2xl font-bold text-neutral-900 dark:text-neutral-50 transition-colors duration-300">
-            Portfolio
+            Rfq Dev
           </div>
           
           <div className="hidden md:flex space-x-8">
