@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Trophy, Users, Star, Dock, Zap, Figma, Clipboard, Cloud, PlayCircle, FileCode2, Wrench } from 'lucide-react';
+import { Trophy, Users, Star, Dock, Zap, Figma, Clipboard, Cloud, CirclePlay as PlayCircle, FileCode2, Wrench } from 'lucide-react';
 import SkeletonCard from './SkeletonCard';
 import ProjectCard from "./ProjectCard";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
