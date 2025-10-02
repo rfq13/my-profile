@@ -3,6 +3,7 @@ import { Trophy, Users, Star, Dock, Zap, Figma, Clipboard, Cloud, PlayCircle, Fi
 import SkeletonCard from './SkeletonCard';
 import ProjectCard from "./ProjectCard";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import { BlurFade } from './ui/blur-fade';
 
 interface ProjectTool {
   toolName: string;
@@ -125,66 +126,70 @@ const Projects: React.FC = () => {
     <TooltipProvider>
       <section id="projects" className="py-20 bg-white dark:bg-neutral-800 transition-colors duration-300">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-neutral-900 dark:text-neutral-50">
-              Project Portfolio
-            </h2>
-            <div className="w-24 h-1 gradient-primary mx-auto mb-6 rounded-full"></div>
-            <p className="text-neutral-600 dark:text-neutral-400 mt-4 max-w-3xl mx-auto text-lg leading-relaxed">
-              Berikut adalah koleksi project terbaik yang telah saya kerjakan untuk berbagai klien. 
-              Setiap project dirancang dengan fokus pada <span className="font-semibold text-neutral-900 dark:text-neutral-50">hasil yang terukur</span> dan 
-              <span className="font-semibold text-neutral-900 dark:text-neutral-50"> pengalaman pengguna yang luar biasa</span>.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4 mt-8">
-              <div className="flex items-center gap-2 px-4 py-2 glass-card-light rounded-full border border-neutral-200 dark:border-neutral-700">
-                <Trophy className="text-blue-600" size={16} />
-                <span className="text-sm font-medium text-neutral-700 dark:text-neutral-300">20+ Project Selesai</span>
-              </div>
-              <div className="flex items-center gap-2 px-4 py-2 glass-card-light rounded-full border border-neutral-200 dark:border-neutral-700">
-                <Users className="text-blue-600" size={16} />
-                <span className="text-sm font-medium text-neutral-700 dark:text-neutral-300">100% Client Satisfaction</span>
-              </div>
-              <div className="flex items-center gap-2 px-4 py-2 glass-card-light rounded-full border border-neutral-200 dark:border-neutral-700">
-                <Star className="text-blue-600" size={16} />
-                <span className="text-sm font-medium text-neutral-700 dark:text-neutral-300">Award Winner</span>
+          <BlurFade delay={0.25} inView>
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-neutral-900 dark:text-neutral-50">
+                Project Portfolio
+              </h2>
+              <div className="w-24 h-1 gradient-primary mx-auto mb-6 rounded-full"></div>
+              <p className="text-neutral-600 dark:text-neutral-400 mt-4 max-w-3xl mx-auto text-lg leading-relaxed">
+                Berikut adalah koleksi project terbaik yang telah saya kerjakan untuk berbagai klien. 
+                Setiap project dirancang dengan fokus pada <span className="font-semibold text-neutral-900 dark:text-neutral-50">hasil yang terukur</span> dan 
+                <span className="font-semibold text-neutral-900 dark:text-neutral-50"> pengalaman pengguna yang luar biasa</span>.
+              </p>
+              <div className="flex flex-wrap justify-center gap-4 mt-8">
+                {[
+                  { icon: Trophy, text: "20+ Project Selesai" },
+                  { icon: Users, text: "100% Client Satisfaction" },
+                  { icon: Star, text: "Award Winner" }
+                ].map((item, index) => (
+                  <BlurFade key={index} delay={0.5 + index * 0.1} inView>
+                    <div className="flex items-center gap-2 px-4 py-2 glass-card-light rounded-full border border-neutral-200 dark:border-neutral-700">
+                      <item.icon className="text-blue-600" size={16} />
+                      <span className="text-sm font-medium text-neutral-700 dark:text-neutral-300">{item.text}</span>
+                    </div>
+                  </BlurFade>
+                ))}
               </div>
             </div>
-          </div>
+          </BlurFade>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
             {loading ? (
               Array.from({ length: 6 }).map((_, index) => (
-                <div key={index} className={`animate-fade-in stagger-${(index % 6) + 1} h-full`}>
+                <BlurFade key={index} delay={0.75 + index * 0.1} inView>
                   <SkeletonCard />
-                </div>
+                </BlurFade>
               ))
             ) : (
               projects.map((project, index) => (
-                <div key={project.id} className={`animate-fade-in stagger-${(index % 6) + 1} h-full flex`}>
+                <BlurFade key={project.id} delay={0.75 + index * 0.15} inView>
                   <ProjectCard
                     project={project}
                     index={index}
                     getStatusBadge={getStatusBadge}
                   />
-                </div>
+                </BlurFade>
               ))
             )}
           </div>
 
           {/* Bottom CTA */}
-          <div className="text-center mt-16 animate-fade-in">
-            <div className="inline-flex flex-col items-center gap-4 p-8 glass-card-light rounded-2xl border border-neutral-200 dark:border-neutral-700">
-              <h3 className="text-2xl font-bold text-neutral-900 dark:text-neutral-50">
-                Tertarik dengan project serupa?
-              </h3>
-              <p className="text-neutral-600 dark:text-neutral-400 max-w-md">
-                Mari diskusikan bagaimana saya dapat membantu mewujudkan project impian Anda dengan hasil yang terukur dan berkualitas tinggi.
-              </p>
-              <button className="px-8 py-3 gradient-primary text-white font-bold rounded-xl hover:scale-105 transition-all duration-300 shadow-lg">
-                Konsultasi Gratis
-              </button>
+          <BlurFade delay={1.5} inView>
+            <div className="text-center mt-16">
+              <div className="inline-flex flex-col items-center gap-4 p-8 glass-card-light rounded-2xl border border-neutral-200 dark:border-neutral-700">
+                <h3 className="text-2xl font-bold text-neutral-900 dark:text-neutral-50">
+                  Tertarik dengan project serupa?
+                </h3>
+                <p className="text-neutral-600 dark:text-neutral-400 max-w-md">
+                  Mari diskusikan bagaimana saya dapat membantu mewujudkan project impian Anda dengan hasil yang terukur dan berkualitas tinggi.
+                </p>
+                <button className="px-8 py-3 gradient-primary text-white font-bold rounded-xl hover:scale-105 transition-all duration-300 shadow-lg">
+                  Konsultasi Gratis
+                </button>
+              </div>
             </div>
-          </div>
+          </BlurFade>
         </div>
       </section>
     </TooltipProvider>
