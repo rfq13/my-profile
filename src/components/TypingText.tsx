@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useTyping } from '../hooks/useTyping';
 
@@ -17,11 +16,13 @@ const TypingText: React.FC<TypingTextProps> = ({ texts, className }) => {
 
   return (
     <span className={`${className} relative`}>
-      <span className="typewriter-glow">
+      {/* Shiny text */}
+      <span className="typewriter-glow bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent animate-shiny">
         {text}
       </span>
+      {/* Cursor */}
       <span 
-        className={`typewriter-cursor ${showCursor ? 'opacity-100' : 'opacity-0'} transition-opacity duration-100`}
+        className={`ml-1 inline-block ${showCursor ? 'opacity-100' : 'opacity-0'} transition-opacity duration-150`}
       >
         |
       </span>
