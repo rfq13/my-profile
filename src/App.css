@@ -40,3 +40,17 @@
 .read-the-docs {
   color: #888;
 }
+
+@keyframes shiny {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+.animate-shiny {
+  background-size: 200% auto;
+  animation: shiny 3s linear infinite;
+}
