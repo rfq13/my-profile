@@ -259,6 +259,76 @@
     --cursor-secondary: 96, 165, 250;
     --cursor-glow: 191, 219, 254;
   }
+
+  /* Typewriter Effects */
+  .typewriter-text {
+    position: relative;
+    display: inline-block;
+  }
+
+  .typewriter-glow {
+    background: linear-gradient(
+      45deg,
+      #3b82f6,
+      #60a5fa,
+      #93c5fd,
+      #dbeafe,
+      #93c5fd,
+      #60a5fa,
+      #3b82f6
+    );
+    background-size: 400% 400%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 3s ease-in-out infinite;
+    font-weight: 800;
+    text-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
+    filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.3));
+  }
+
+  .dark .typewriter-glow {
+    background: linear-gradient(
+      45deg,
+      #60a5fa,
+      #93c5fd,
+      #dbeafe,
+      #ffffff,
+      #dbeafe,
+      #93c5fd,
+      #60a5fa
+    );
+    background-size: 400% 400%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 30px rgba(147, 197, 253, 0.6);
+    filter: drop-shadow(0 0 15px rgba(147, 197, 253, 0.4));
+  }
+
+  .typewriter-cursor {
+    color: #3b82f6;
+    font-weight: 300;
+    margin-left: 2px;
+    text-shadow: 0 0 10px rgba(59, 130, 246, 0.8);
+  }
+
+  .dark .typewriter-cursor {
+    color: #93c5fd;
+    text-shadow: 0 0 15px rgba(147, 197, 253, 0.9);
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
 }
 
 @keyframes fadeIn {

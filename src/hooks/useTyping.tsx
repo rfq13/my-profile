@@ -21,6 +21,7 @@ export const useTyping = (
   const [isDeleting, setIsDeleting] = useState(false);
   const [loopNum, setLoopNum] = useState(0);
   const [typingState, setTypingState] = useState<'typing' | 'pausing' | 'deleting'>('typing');
+  const [showCursor, setShowCursor] = useState(true);
 
   useEffect(() => {
     let ticker: NodeJS.Timeout;
@@ -56,5 +57,13 @@ export const useTyping = (
 
   }, [text, isDeleting, loopNum, texts, typingSpeed, deletingSpeed, pauseDuration, loop, typingState]);
 
-  return text;
+  // Cursor blinking effect
+  useEffect(() => {
+    const cursorInterval = setInterval(() => {
+      setShowCursor(prev => !prev);
+    }, 530);
+
+    return () => clearInterval(cursorInterval);
+  }, []);
+  return { text, showCursor };
 };

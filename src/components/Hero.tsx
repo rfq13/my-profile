@@ -24,6 +24,14 @@ const Hero: React.FC = () => {
     }
   };
 
+  const typewriterRoles = [
+    "Full Stack Developer",
+    "Backend Engineer", 
+    "React Enthusiast",
+    "Open Source Contributor",
+    "UI/UX Designer",
+    "Problem Solver"
+  ];
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden py-16 md:py-0">
       {/* Background decoration */}
@@ -52,10 +60,13 @@ const Hero: React.FC = () => {
             
             <BlurFade delay={0.75} inView>
               <div className="mb-8">
-                <div className="glass-card-light px-6 py-4 rounded-2xl min-h-[4rem] flex items-center">
-                  <span className="text-2xl md:text-3xl font-bold gradient-text">
-                    <TypingText texts={["Full Stack Developer", "UI/UX Enthusiast", "Problem Solver"]} />
-                  </span>
+                <div className="glass-card-light px-6 py-6 rounded-2xl min-h-[5rem] flex items-center justify-center md:justify-start">
+                  <div className="text-2xl md:text-3xl lg:text-4xl font-bold">
+                    <TypingText 
+                      texts={typewriterRoles}
+                      className="typewriter-text"
+                    />
+                  </div>
                 </div>
               </div>
             </BlurFade>
