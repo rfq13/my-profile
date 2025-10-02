@@ -1,6 +1,7 @@
 import React from 'react';
 import { Code, Palette, Rocket, Heart } from 'lucide-react';
 import { BlurFade } from './ui/blur-fade';
+import { BlurText } from './ui/animated-blur-text';
 
 const About: React.FC = () => {
   const features = [
@@ -36,9 +37,13 @@ const About: React.FC = () => {
       <div className="container mx-auto px-4 relative z-10">
         <BlurFade delay={0.25} inView>
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-neutral-900 dark:text-neutral-50">
-              About Me
-            </h2>
+            <BlurText
+              text="About Me"
+              delay={100}
+              animateBy="words"
+              direction="top"
+              className="text-4xl md:text-5xl font-bold mb-4 text-neutral-900 dark:text-neutral-50"
+            />
             <div className="w-24 h-1 gradient-primary mx-auto rounded-full"></div>
           </div>
         </BlurFade>
@@ -47,9 +52,13 @@ const About: React.FC = () => {
           <BlurFade delay={0.5} inView>
             <div>
               <div className="glass-card-light p-8 rounded-3xl border border-neutral-200 dark:border-neutral-700">
-                <h3 className="text-2xl font-bold text-neutral-900 dark:text-neutral-50 mb-6 gradient-text">
-                  Full Stack Developer with 5+ years of experience
-                </h3>
+                <BlurText
+                  text="Full Stack Developer with 5+ years of experience"
+                  delay={80}
+                  animateBy="words"
+                  direction="bottom"
+                  className="text-2xl font-bold text-neutral-900 dark:text-neutral-50 mb-6 gradient-text"
+                />
                 <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed mb-6">
                   I'm passionate about creating digital experiences that are not only beautiful but also functional. 
                   My journey in web development started with a curiosity about how websites work, and it has evolved 
@@ -86,7 +95,13 @@ const About: React.FC = () => {
                         {feature.icon}
                       </div>
                     </div>
-                    <h4 className="text-neutral-900 dark:text-neutral-50 font-semibold mb-2">{feature.title}</h4>
+                    <BlurText
+                      text={feature.title}
+                      delay={50}
+                      animateBy="letters"
+                      direction="bottom"
+                      className="text-neutral-900 dark:text-neutral-50 font-semibold mb-2"
+                    />
                     <p className="text-neutral-600 dark:text-neutral-400 text-sm">{feature.description}</p>
                   </div>
                 </BlurFade>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Badge } from './ui/badge';
+import { BlurText } from './ui/animated-blur-text';
 
 const Skills: React.FC = () => {
   const skills = [
@@ -15,9 +16,13 @@ const Skills: React.FC = () => {
     <section id="skills" className="py-20 bg-white dark:bg-neutral-800 transition-colors duration-300">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12 animate-fade-in">
-          <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 dark:text-neutral-50 mb-4">
-            My Tech Stack
-          </h2>
+          <BlurText
+            text="My Tech Stack"
+            delay={100}
+            animateBy="words"
+            direction="top"
+            className="text-3xl md:text-4xl font-bold text-neutral-900 dark:text-neutral-50 mb-4"
+          />
           <p className="text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">
             I work with a variety of modern technologies to build high-quality web applications.
           </p>

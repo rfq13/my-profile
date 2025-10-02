@@ -4,6 +4,7 @@ import SkeletonCard from './SkeletonCard';
 import ProjectCard from "./ProjectCard";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { BlurFade } from './ui/blur-fade';
+import { BlurText } from './ui/animated-blur-text';
 
 interface ProjectTool {
   toolName: string;
@@ -128,9 +129,13 @@ const Projects: React.FC = () => {
         <div className="container mx-auto px-4">
           <BlurFade delay={0.25} inView>
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-neutral-900 dark:text-neutral-50">
-                Project Portfolio
-              </h2>
+              <BlurText
+                text="Project Portfolio"
+                delay={150}
+                animateBy="words"
+                direction="top"
+                className="text-4xl md:text-5xl font-bold mb-6 text-neutral-900 dark:text-neutral-50"
+              />
               <div className="w-24 h-1 gradient-primary mx-auto mb-6 rounded-full"></div>
               <p className="text-neutral-600 dark:text-neutral-400 mt-4 max-w-3xl mx-auto text-lg leading-relaxed">
                 Berikut adalah koleksi project terbaik yang telah saya kerjakan untuk berbagai klien. 
@@ -178,9 +183,13 @@ const Projects: React.FC = () => {
           <BlurFade delay={1.5} inView>
             <div className="text-center mt-16">
               <div className="inline-flex flex-col items-center gap-4 p-8 glass-card-light rounded-2xl border border-neutral-200 dark:border-neutral-700">
-                <h3 className="text-2xl font-bold text-neutral-900 dark:text-neutral-50">
-                  Tertarik dengan project serupa?
-                </h3>
+                <BlurText
+                  text="Tertarik dengan project serupa?"
+                  delay={100}
+                  animateBy="words"
+                  direction="bottom"
+                  className="text-2xl font-bold text-neutral-900 dark:text-neutral-50"
+                />
                 <p className="text-neutral-600 dark:text-neutral-400 max-w-md">
                   Mari diskusikan bagaimana saya dapat membantu mewujudkan project impian Anda dengan hasil yang terukur dan berkualitas tinggi.
                 </p>

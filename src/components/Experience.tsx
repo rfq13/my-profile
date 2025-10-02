@@ -1,5 +1,6 @@
 import React from 'react';
 import { Briefcase, GraduationCap } from 'lucide-react';
+import { BlurText } from './ui/animated-blur-text';
 
 const ExperienceItem = ({ icon, date, title, company, description }: any) => (
   <div className="flex gap-x-4 animate-fade-in">
@@ -65,15 +66,25 @@ const Experience: React.FC = () => {
     <section id="experience" className="py-20 bg-neutral-50 dark:bg-neutral-900 transition-colors duration-300">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-neutral-900 dark:text-neutral-50">
-            My Journey
-          </h2>
+          <BlurText
+            text="My Journey"
+            delay={120}
+            animateBy="words"
+            direction="top"
+            className="text-4xl md:text-5xl font-bold mb-4 text-neutral-900 dark:text-neutral-50"
+          />
           <div className="w-24 h-1 gradient-primary mx-auto rounded-full"></div>
         </div>
 
         <div className="grid md:grid-cols-2 gap-16">
           <div className="animate-slide-in-left">
-            <h3 className="text-2xl font-bold text-neutral-900 dark:text-neutral-50 mb-8 text-center md:text-left">Work Experience</h3>
+            <BlurText
+              text="Work Experience"
+              delay={80}
+              animateBy="letters"
+              direction="bottom"
+              className="text-2xl font-bold text-neutral-900 dark:text-neutral-50 mb-8 text-center md:text-left"
+            />
             {workExperience.map((item, index) => (
               <div key={`work-${index}`} className={`animate-fade-in stagger-${index + 1}`}>
                 <ExperienceItem {...item} />
@@ -81,7 +92,13 @@ const Experience: React.FC = () => {
             ))}
           </div>
           <div className="animate-slide-in-right">
-            <h3 className="text-2xl font-bold text-neutral-900 dark:text-neutral-50 mb-8 text-center md:text-left">Life & Education</h3>
+            <BlurText
+              text="Life & Education"
+              delay={80}
+              animateBy="letters"
+              direction="bottom"
+              className="text-2xl font-bold text-neutral-900 dark:text-neutral-50 mb-8 text-center md:text-left"
+            />
             {lifeExperience.map((item, index) => (
               <div key={`life-${index}`} className={`animate-fade-in stagger-${index + 1}`}>
                 <ExperienceItem {...item} />
