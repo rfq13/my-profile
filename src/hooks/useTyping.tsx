@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 
 interface TypingOptions {
@@ -43,27 +42,27 @@ export const useTyping = (
         }, pauseDuration);
       } else if (isDeleting && updatedText === '') {
         setIsDeleting(false);
-        setLoopNum(loopNum + 1);
+        // FIX: pakai functional update
+        setLoopNum(prev => prev + 1);
         setTypingState('typing');
       }
     };
-    
-    if (typingState !== 'pausing') {
-        const speed = isDeleting ? deletingSpeed : typingSpeed;
-        ticker = setTimeout(handleTyping, speed);
-    }
-    
-    return () => clearTimeout(ticker);
 
-  }, [text, isDeleting, loopNum, texts, typingSpeed, deletingSpeed, pauseDuration, loop, typingState]);
+    if (typingState !== 'pausing') {
+      const speed = isDeleting ? deletingSpeed : typingSpeed;
+      ticker = setTimeout(handleTyping, speed);
+    }
+
+    return () => clearTimeout(ticker);
+  }, [text, isDeleting, loopNum, texts, typingSpeed, deletingSpeed, pauseDuration, typingState]);
 
   // Cursor blinking effect
   useEffect(() => {
     const cursorInterval = setInterval(() => {
       setShowCursor(prev => !prev);
     }, 530);
-
     return () => clearInterval(cursorInterval);
   }, []);
+
   return { text, showCursor };
 };
